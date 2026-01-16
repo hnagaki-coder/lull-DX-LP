@@ -1,32 +1,59 @@
 /* =========================================
-   Hero (First View)
+   Base Settings & Variables
    ========================================= */
 :root {
-  --hero-text: #333333;
-  --hero-black: #000000;
-  --hero-white: #ffffff;
-  --hero-primary-blue: #236fa6;
-  --hero-content-width: 1160px;
+  --color-text: #333333;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-primary-blue: #236fa6;
+  --content-width: 1200px;
   --hero-height: 700px;
+  --font-family-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   Component: Hero (First View)
+   ========================================= */
 .hero {
   width: 100%;
   position: relative;
   overflow: hidden;
   height: var(--hero-height);
-  background-color: var(--hero-white);
-  background-image:
-    linear-gradient(422deg, transparent 47%, var(--hero-primary-blue) 40.1%),
-    linear-gradient(65deg, var(--hero-primary-blue) 14%, transparent 12.1%);
+  background-color: var(--color-white);
+  background-image: linear-gradient(
+      422deg,
+      transparent 47%,
+      var(--color-primary-blue) 40.1%
+    ),
+    linear-gradient(65deg, var(--color-primary-blue) 14%, transparent 12.1%);
   display: flex;
   align-items: center;
-  margin-bottom: 80px;
 }
 
 .hero__inner {
   width: 100%;
-  max-width: var(--hero-content-width);
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 0 24px;
   height: 100%;
@@ -49,24 +76,25 @@
 }
 
 .hero__title {
-  font-size: 56px;
-  font-weight: 700;
+  font-size: clamp(28px, 3.28vw, 42px);
+  font-weight: bold;
   line-height: 1.5;
   margin-bottom: 40px;
   letter-spacing: 0.05em;
-  color: var(--hero-black);
+  color: var(--color-black);
 }
-
+  
 .hero__title span {
   display: inline-block;
+font-size: clamp(32px, 5vw, 64px);
 }
 
 .hero__btn {
   display: inline-block;
-  background-color: var(--hero-black);
-  color: var(--hero-white);
+  background-color: var(--color-black);
+  color: var(--color-white);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 18px;
   padding: 16px 60px;
   border-radius: 6px;
@@ -87,18 +115,13 @@
   z-index: 1;
 }
 
-.hero img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 .hexagon {
   position: absolute;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  padding: 4px;
-  background: #ffffff;
+  background-color: #ddd;
   overflow: hidden;
+  padding: 4px;
+  background: #fff;
 }
 
 .hexagon img {
@@ -164,6 +187,16 @@
   z-index: 3;
 }
 
+@media screen and (min-width: 1280px) {
+  .hero__title {
+    font-size: 3.28125vw;
+  }
+
+  .hero__title span {
+    font-size: 5vw;
+  }
+}
+
 @media screen and (max-width: 960px) {
   .hero__title {
     font-size: 40px;
@@ -180,7 +213,11 @@
 
 @media screen and (max-width: 768px) {
   .hero {
-    background-image: linear-gradient(180deg, var(--hero-white) 40%, var(--hero-primary-blue) 40.1%);
+    background-image: linear-gradient(
+      180deg,
+      var(--color-white) 40%,
+      var(--color-primary-blue) 40.1%
+    );
     height: auto;
     padding-bottom: 300px;
     display: block;
@@ -251,7 +288,10 @@
     height: 140px;
   }
 
-  .hex-6,
+  .hex-6 {
+    display: none;
+  }
+
   .hex-7 {
     display: none;
   }

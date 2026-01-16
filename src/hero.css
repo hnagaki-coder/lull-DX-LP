@@ -1,129 +1,123 @@
 /* =========================================
-   Hero (First View)
+   Base Settings & Variables
    ========================================= */
 :root {
-  --hero-text: #1b1b1b;
-  --hero-white: #ffffff;
-  --hero-shadow: rgba(0, 0, 0, 0.12);
-  --hero-content-width: 1160px;
+  --color-text: #333333;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-primary-blue: #236fa6;
+  --content-width: 1200px;
   --hero-height: 700px;
+  --font-family-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   Component: Hero (First View)
+   ========================================= */
 .hero {
   width: 100%;
   position: relative;
   overflow: hidden;
-  min-height: var(--hero-height);
-  background: linear-gradient(180deg, #245E96, #329BBD);
+  height: var(--hero-height);
+  background-color: var(--color-white);
+  background-image: linear-gradient(422deg, transparent 47%, var(--color-primary-blue) 40.1%), linear-gradient(65deg, var(--color-primary-blue) 14%, transparent 12.1%);
   display: flex;
   align-items: center;
-  margin-bottom: 80px;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 62%;
-  height: 100%;
-  background: var(--hero-white);
-  clip-path: polygon(0 0, 86% 0, 62% 100%, 0 100%);
-  z-index: 1;
 }
 
 .hero__inner {
   width: 100%;
-  max-width: var(--hero-content-width);
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 0 24px;
   height: 100%;
   position: relative;
   display: flex;
   align-items: center;
-  z-index: 3;
+  z-index: 10;
 }
 
 .hero__content {
-  width: 55%;
-  padding: 24px 0 24px 24px;
+  width: 45%;
+  padding-top: 40px;
 }
 
 .hero__text-group {
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 32px;
+  align-items: center;
   width: -moz-fit-content;
   width: fit-content;
 }
 
 .hero__title {
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-  margin: 0;
-  color: var(--hero-text);
+  font-size: clamp(28px, 3.28vw, 42px);
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  letter-spacing: 0.05em;
+  color: var(--color-black);
 }
 
-.hero__title-line {
-  display: block;
-}
-
-.hero__hash,
-.hero__rest {
-  font-size: clamp(24px, 3.28125vw, 42px);
-  font-weight: 700;
-}
-
-.hero__emphasis {
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 800;
+.hero__title span {
+  display: inline-block;
+  font-size: clamp(32px, 5vw, 64px);
 }
 
 .hero__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #1f5f94;
-  color: var(--hero-white);
+  display: inline-block;
+  background-color: var(--color-black);
+  color: var(--color-white);
   text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 14px 56px;
-  border-radius: 999px;
-  box-shadow: 0 12px 20px var(--hero-shadow);
-  transition: opacity 0.3s, transform 0.3s;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 16px 60px;
+  border-radius: 6px;
+  transition: opacity 0.3s;
 }
 
 .hero__btn:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+  opacity: 0.8;
 }
 
 .hero__visual {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 2;
-}
-
-.hero img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  z-index: 1;
 }
 
 .hexagon {
   position: absolute;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  border-radius: 8px;
-  padding: 4px;
-  background: #ffffff;
+  background-color: #ddd;
   overflow: hidden;
+  padding: 4px;
+  background: #fff;
 }
 
 .hexagon img {
@@ -132,113 +126,122 @@
   -o-object-fit: cover;
      object-fit: cover;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  border-radius: 8px;
 }
 
 .hex-1 {
-  top: 10%;
-  left: 54%;
+  top: 12%;
+  left: 48%;
   width: 260px;
   height: 260px;
   z-index: 5;
 }
 
 .hex-2 {
-  top: 6%;
-  right: -40px;
+  top: 8%;
+  right: -60px;
   width: 280px;
   height: 280px;
   z-index: 4;
 }
 
 .hex-3 {
-  top: 50%;
-  left: 74%;
+  top: 48%;
+  left: 70%;
   width: 200px;
   height: 200px;
   z-index: 3;
 }
 
 .hex-4 {
-  bottom: -70px;
-  right: -30px;
+  bottom: -60px;
+  right: -40px;
   width: 280px;
   height: 280px;
   z-index: 4;
 }
 
 .hex-5 {
-  bottom: -30px;
-  left: 52%;
+  bottom: -40px;
+  left: 48%;
   width: 220px;
   height: 220px;
   z-index: 4;
 }
 
 .hex-6 {
-  bottom: -40px;
-  left: 36%;
+  bottom: -60px;
+  left: -30px;
   width: 220px;
   height: 220px;
   z-index: 2;
 }
 
 .hex-7 {
-  top: -70px;
-  left: 42%;
+  top: -80px;
+  left: 32%;
   width: 180px;
   height: 180px;
   z-index: 3;
 }
 
-@media screen and (max-width: 1024px) {
-  .hero::before {
-    width: 70%;
+@media screen and (min-width: 1280px) {
+  .hero__title {
+    font-size: 3.28125vw;
+  }
+  .hero__title span {
+    font-size: 5vw;
+  }
+}
+@media screen and (max-width: 960px) {
+  .hero__title {
+    font-size: 40px;
   }
   .hero__content {
-    width: 60%;
+    width: 50%;
   }
   .hexagon {
-    transform: scale(0.85);
+    transform: scale(0.8);
   }
 }
 @media screen and (max-width: 768px) {
   .hero {
-    min-height: auto;
-    padding: 80px 0 320px;
+    background-image: linear-gradient(180deg, var(--color-white) 40%, var(--color-primary-blue) 40.1%);
+    height: auto;
+    padding-bottom: 300px;
     display: block;
-  }
-  .hero::before {
-    width: 100%;
-    clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
   }
   .hero__inner {
     display: block;
-    padding: 0 20px;
+    padding: 60px 24px 0;
   }
   .hero__content {
     width: 100%;
-    padding: 0;
+    text-align: center;
+    margin-bottom: 40px;
   }
   .hero__text-group {
-    align-items: flex-start;
-    gap: 24px;
+    display: block;
+    width: 100%;
+  }
+  .hero__title {
+    font-size: 32px;
+    margin-bottom: 30px;
   }
   .hero__btn {
     width: 100%;
-    max-width: 280px;
+    max-width: 300px;
   }
   .hex-1 {
     top: auto;
     bottom: 220px;
-    left: 12%;
+    left: 10%;
     width: 140px;
     height: 140px;
   }
   .hex-2 {
     top: auto;
     bottom: 250px;
-    right: -10px;
+    right: -20px;
     width: 150px;
     height: 150px;
   }
@@ -252,17 +255,19 @@
   }
   .hex-4 {
     bottom: -30px;
-    right: -10px;
+    right: -20px;
     width: 140px;
     height: 140px;
   }
   .hex-5 {
     bottom: -30px;
-    left: -10px;
+    left: -20px;
     width: 140px;
     height: 140px;
   }
-  .hex-6,
+  .hex-6 {
+    display: none;
+  }
   .hex-7 {
     display: none;
   }
