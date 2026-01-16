@@ -54,7 +54,6 @@ img {
 .hero__inner {
   width: 100%;
   max-width: var(--content-width);
-  margin: 0 auto;
   padding: 0 24px;
   height: 100%;
   position: relative;
@@ -64,7 +63,6 @@ img {
 }
 
 .hero__content {
-  width: 45%;
   padding-top: 40px;
 }
 
@@ -83,7 +81,7 @@ img {
   letter-spacing: 0.05em;
   color: var(--color-black);
 }
-  
+
 .hero__title span {
   display: inline-block;
 font-size: clamp(32px, 5vw, 64px);
