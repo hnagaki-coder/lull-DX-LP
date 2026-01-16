@@ -76,29 +76,43 @@ p {
   margin: 0 0 1em 0;
 }
 
+.section-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  width: 90%;
+}
+
 /* ==============================
    CTA ボタン
    画像に合わせた白背景 + グラデーション枠、青いテキスト
    ============================== */
-.cta-button {
-  display: inline-block;
-  padding: 10px 28px;
+.cta_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 32px;
+  border-radius: var(--header-radius);
+  background: linear-gradient(90deg, var(--header-btn-start), var(--header-btn-end));
+  color: #ffffff;
   font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  border-radius: 6px;
-  cursor: pointer;
-  border: 3px solid transparent;
-  background: linear-gradient(#ffffff, #ffffff) padding-box, $brand-gradient-x border-box;
-  background-clip: padding-box, border-box;
-  color: $brand-color-start;
-  font-size: clamp(16px, 1.875vw, 24px);
-  -webkit-font-smoothing: antialiased;
-  transition: transform 120ms ease, box-shadow 120ms ease;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.1s ease;
 }
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(36,94,150,0.12);
+
+.cta_button:hover {
+  opacity: 0.9;
+  text-decoration: none;
 }
-.cta-button:active { transform: translateY(0); }
-.cta-button:focus { outline: 3px solid rgba(36,94,150,0.12); outline-offset: 2px; }
+
+.cta_button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+
+  .cta_button {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}

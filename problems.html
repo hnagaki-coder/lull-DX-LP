@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>地域DX化 組織図再現</title>
+  <style>
+    :root {
+      --pink-main: #f28ba3;
+      --pink-bg: rgba(242, 139, 163, 0.15);
+      --orange-main: #fbc07a;
+      --orange-bg: rgba(251, 192, 122, 0.15);
+      --blue-main: #aed6f1;
+      --blue-bg: rgba(174, 214, 241, 0.2);
+      --green-main: #b7e4cf;
+      --green-bg: rgba(183, 228, 207, 0.2);
+      --center-text-color: #4387b5;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #fff;
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    }
+
+    .diagram-container {
+      position: relative;
+      width: 900px;
+      height: 700px;
+    }
+
+    /* 中央の文字 */
+    .center-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 80px;
+      font-weight: 900;
+      z-index: 100;
+      background: linear-gradient(to bottom, #7bb9e8 0%, #2c5d8a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -2px;
+      pointer-events: none;
+    }
+
+    /* 共通の円スタイル */
+    .node {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 半透明の大きな円 */
+    .outer-circle {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      mix-blend-mode: multiply;
+      /* 重なり部分を濃くする */
+    }
+
+    /* 中央のグラデーションの円 */
+    .inner-circle {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      z-index: 10;
+    }
+
+    /* 各配置の設定 */
+    .top-left {
+      top: 0;
+      left: 100px;
+    }
+
+    .top-right {
+      top: 0;
+      right: 100px;
+    }
+
+    .bottom-left {
+      bottom: 0;
+      left: 100px;
+    }
+
+    .bottom-right {
+      bottom: 0;
+      right: 100px;
+    }
+
+    /* 個別カラー設定 */
+    .top-left .outer-circle {
+      background-color: var(--pink-bg);
+    }
+
+    .top-left .inner-circle {
+      background: radial-gradient(circle, #f7abbd, #e84e70);
+    }
+
+    .top-right .outer-circle {
+      background-color: var(--orange-bg);
+    }
+
+    .top-right .inner-circle {
+      background: radial-gradient(circle, #fbd3a3, #f7b966);
+    }
+
+    .bottom-left .outer-circle {
+      background-color: var(--blue-bg);
+    }
+
+    .bottom-left .inner-circle {
+      background: radial-gradient(circle, #c5e3f5, #80c1df);
+    }
+
+    .bottom-right .outer-circle {
+      background-color: var(--green-bg);
+    }
+
+    .bottom-right .inner-circle {
+      background: radial-gradient(circle, #d1efe0, #9bd0c1);
+    }
+
+    /* 説明テキスト */
+    .desc-text {
+      position: absolute;
+      font-size: 14px;
+      line-height: 1.4;
+      width: 300px;
+    }
+
+    .tl-desc {
+      top: 20px;
+      left: -140px;
+      color: #d6335a;
+      text-align: left;
+    }
+
+    .tr-desc {
+      top: 20px;
+      right: -140px;
+      color: #e68a00;
+      text-align: left;
+    }
+
+    .bl-desc {
+      bottom: 30px;
+      left: -140px;
+      color: #4387b5;
+      text-align: left;
+    }
+
+    .br-desc {
+      bottom: 30px;
+      right: -140px;
+      color: #2d8a6b;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="diagram-container">
+    <div class="center-label">地域DX化</div>
+
+    <div class="node top-left">
+      <div class="desc-text tl-desc">
+        低予算・短期間で導入可能な共通プラット<br>
+        フォームにより、地方自治体のデジタル化と<br>
+        スマートシティ化を支援する専門組織
+      </div>
+      <div class="outer-circle"></div>
+      <div class="inner-circle">
+        一般社団法人<br>
+        コンパクトスマートシティ<br>
+        プラットフォーム協議会
+      </div>
+    </div>
+
+    <div class="node top-right">
+      <div class="desc-text tr-desc">
+        全国の有人離島と都市部・企業を繋ぐプラッ<br>
+        トフォームとして、特産品の流通や情報発信<br>
+        を通じて島の地域活性化をプロデュースする<br>
+        組織
+      </div>
+      <div class="outer-circle"></div>
+      <div class="inner-circle">
+        一般社団法人<br>
+        離島百貨店
+      </div>
+    </div>
+
+    <div class="node bottom-left">
+      <div class="desc-text bl-desc">
+        IT未経験者の育成とキャリア支援を軸に、IT<br>
+        人材不足の解消と地域格差の是正に取り組む<br>
+        EdTech・HRテック企業
+      </div>
+      <div class="outer-circle"></div>
+      <div class="inner-circle">
+        株式会社LULL
+      </div>
+    </div>
+
+    <div class="node bottom-right">
+      <div class="desc-text br-desc">
+        深刻な人口減少という課題を抱える、IT技術<br>
+        で地域課題を解決しながら若者が自分らしく<br>
+        輝ける『挑戦の舞台』
+      </div>
+      <div class="outer-circle"></div>
+      <div class="inner-circle">
+        地方自治体
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

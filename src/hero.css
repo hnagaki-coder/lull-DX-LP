@@ -1,0 +1,269 @@
+/* =========================================
+   Hero (First View)
+   ========================================= */
+:root {
+  --hero-text: #1b1b1b;
+  --hero-white: #ffffff;
+  --hero-shadow: rgba(0, 0, 0, 0.12);
+  --hero-content-width: 1160px;
+  --hero-height: 700px;
+}
+
+.hero {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: var(--hero-height);
+  background: linear-gradient(180deg, #245E96, #329BBD);
+  display: flex;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 62%;
+  height: 100%;
+  background: var(--hero-white);
+  clip-path: polygon(0 0, 86% 0, 62% 100%, 0 100%);
+  z-index: 1;
+}
+
+.hero__inner {
+  width: 100%;
+  max-width: var(--hero-content-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.hero__content {
+  width: 55%;
+  padding: 24px 0 24px 24px;
+}
+
+.hero__text-group {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.hero__title {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--hero-text);
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__hash,
+.hero__rest {
+  font-size: clamp(24px, 3.28125vw, 42px);
+  font-weight: 700;
+}
+
+.hero__emphasis {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1f5f94;
+  color: var(--hero-white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 56px;
+  border-radius: 999px;
+  box-shadow: 0 12px 20px var(--hero-shadow);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.hero__btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.hero__visual {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hexagon {
+  position: absolute;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border-radius: 8px;
+  padding: 4px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.hexagon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border-radius: 8px;
+}
+
+.hex-1 {
+  top: 10%;
+  left: 54%;
+  width: 260px;
+  height: 260px;
+  z-index: 5;
+}
+
+.hex-2 {
+  top: 6%;
+  right: -40px;
+  width: 280px;
+  height: 280px;
+  z-index: 4;
+}
+
+.hex-3 {
+  top: 50%;
+  left: 74%;
+  width: 200px;
+  height: 200px;
+  z-index: 3;
+}
+
+.hex-4 {
+  bottom: -70px;
+  right: -30px;
+  width: 280px;
+  height: 280px;
+  z-index: 4;
+}
+
+.hex-5 {
+  bottom: -30px;
+  left: 52%;
+  width: 220px;
+  height: 220px;
+  z-index: 4;
+}
+
+.hex-6 {
+  bottom: -40px;
+  left: 36%;
+  width: 220px;
+  height: 220px;
+  z-index: 2;
+}
+
+.hex-7 {
+  top: -70px;
+  left: 42%;
+  width: 180px;
+  height: 180px;
+  z-index: 3;
+}
+
+@media screen and (max-width: 1024px) {
+  .hero::before {
+    width: 70%;
+  }
+  .hero__content {
+    width: 60%;
+  }
+  .hexagon {
+    transform: scale(0.85);
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 80px 0 320px;
+    display: block;
+  }
+  .hero::before {
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
+  }
+  .hero__inner {
+    display: block;
+    padding: 0 20px;
+  }
+  .hero__content {
+    width: 100%;
+    padding: 0;
+  }
+  .hero__text-group {
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .hero__btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  .hex-1 {
+    top: auto;
+    bottom: 220px;
+    left: 12%;
+    width: 140px;
+    height: 140px;
+  }
+  .hex-2 {
+    top: auto;
+    bottom: 250px;
+    right: -10px;
+    width: 150px;
+    height: 150px;
+  }
+  .hex-3 {
+    top: auto;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 160px;
+  }
+  .hex-4 {
+    bottom: -30px;
+    right: -10px;
+    width: 140px;
+    height: 140px;
+  }
+  .hex-5 {
+    bottom: -30px;
+    left: -10px;
+    width: 140px;
+    height: 140px;
+  }
+  .hex-6,
+  .hex-7 {
+    display: none;
+  }
+}/*# sourceMappingURL=hero.css.map */

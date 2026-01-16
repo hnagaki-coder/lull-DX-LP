@@ -64,9 +64,9 @@ p {
 }
 
 .section-inner {
-  max-width: 1280px;
+  max-width: 1120px;
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
 }
 
 /* ==============================
@@ -101,4 +101,4 @@ p {
     padding: 8px 20px;
     font-size: 14px;
   }
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=style.css.map */
