@@ -39,7 +39,7 @@
 .partners__block {
   margin-bottom: 50px;
   width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 18px;
 }
 
 .partners__block:last-child {
@@ -51,7 +51,6 @@
   font-size: 18px;
   font-weight: bold;
   color: var(--partners-color-primary);
-  margin-bottom: 20px;
 }
 
 .partners__content {

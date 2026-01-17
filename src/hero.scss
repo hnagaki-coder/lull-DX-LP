@@ -43,12 +43,13 @@ img {
   background-color: var(--color-white);
   background-image: linear-gradient(
       422deg,
-      transparent 49%,
+      transparent 51%,
       var(--color-primary-blue) 40.1%
     ),
-    linear-gradient(65deg, var(--color-primary-blue) 14%, transparent 12.1%);
+    linear-gradient(65deg, var(--color-primary-blue) 12%, transparent 12.1%);
   display: flex;
   align-items: center;
+  margin-bottom: 80px;
 }
 
 .hero__inner {
@@ -131,60 +132,67 @@ font-size: clamp(32px, 5vw, 64px);
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
-.hex-1 {
-  top: 12%;
+.hex-1-image {
+  position: absolute;
+  top: -3px;
   left: 48%;
-  width: 260px;
-  height: 200px;
   z-index: 5;
+  object-fit: cover;
 }
 
-.hex-2 {
-  top: 8%;
-  right: -60px;
-  width: 280px;
-  height: 280px;
-  z-index: 4;
-}
-
-.hex-3 {
-  top: 48%;
-  left: 70%;
-  width: 200px;
-  height: 200px;
-  z-index: 3;
-}
-
-.hex-4 {
-  bottom: -60px;
+.hex-2-image {
+  position: absolute;
+  top: -3px;
   right: -40px;
-  width: 280px;
-  height: 280px;
   z-index: 4;
+  object-fit: cover;
 }
 
-.hex-5 {
-  bottom: -40px;
-  left: 48%;
-  width: 260px;
-    height: 200px;
-  z-index: 4;
-}
-
-.hex-6 {
-  bottom: -60px;
-  left: -30px;
-  width: 220px;
-  height: 220px;
-  z-index: 2;
-}
-
-.hex-7 {
-  top: -80px;
-  left: 32%;
-  width: 180px;
-  height: 180px;
+.hex-3-image {
+  position: absolute;
+  top: 37%;
+  left: 67%;
   z-index: 3;
+  object-fit: cover;
+}
+
+.hex-4-image {
+  position: absolute;
+  bottom: -200px;
+  right: -40px;
+  z-index: 4;
+  object-fit: cover;
+}
+
+.hex-5-image {
+  position: absolute;
+  bottom: -200px;
+  left: 48%;
+  z-index: 4;
+  object-fit: cover;
+}
+
+.hex-6-image {
+  position: absolute;
+  bottom: -200px;
+  left: -160px;
+  z-index: 2;
+  object-fit: cover;
+}
+
+.hex-7-image {
+  position: absolute;
+  top: -188px;
+  left: 67%;
+  z-index: 3;
+  object-fit: cover;
+}
+.hex-8-image {
+  position: absolute;
+  top: -188px;
+  left: 27%;
+  z-index: 3;
+  object-fit: cover;
 }
 
 @media screen and (min-width: 1280px) {
@@ -249,7 +257,7 @@ font-size: clamp(32px, 5vw, 64px);
     max-width: 300px;
   }
 
-  .hex-1 {
+  .hex-1-image {
     top: auto;
     bottom: 220px;
     left: 10%;
@@ -257,15 +265,13 @@ font-size: clamp(32px, 5vw, 64px);
     height: 140px;
   }
 
-  .hex-2 {
+  .hex-2-image {
     top: auto;
     bottom: 250px;
     right: -20px;
-    width: 150px;
-    height: 150px;
   }
 
-  .hex-3 {
+  .hex-3-image {
     top: auto;
     bottom: 100px;
     left: 50%;
@@ -274,25 +280,21 @@ font-size: clamp(32px, 5vw, 64px);
     height: 160px;
   }
 
-  .hex-4 {
+  .hex-4-image {
     bottom: -30px;
     right: -20px;
-    width: 140px;
-    height: 140px;
   }
 
-  .hex-5 {
+  .hex-5-image {
     bottom: -30px;
     left: -20px;
-    width: 140px;
-    height: 140px;
   }
 
-  .hex-6 {
+  .hex-6-image {
     display: none;
   }
 
-  .hex-7 {
+  .hex-7-image {
     display: none;
   }
 }
