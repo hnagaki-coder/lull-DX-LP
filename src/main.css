@@ -74,7 +74,7 @@
    ========================================= */
 :root {
   --color-text: #333333;
-  --color-black: #000000;
+  --color-black: #333333;
   --color-white: #ffffff;
   --color-primary-blue: #236fa6;
   --content-width: 1200px;
@@ -613,7 +613,7 @@ body {
    ========================================= */
 :root {
   --solution-color-text: #333333;
-  --solution-color-black: #000000;
+  --solution-color-black: #333333;
   --solution-content-width: 1000px;
   --solution-font-size-base: 16px;
   --solution-font-size-title: 20px;
@@ -1726,7 +1726,7 @@ body {
   margin-top: -5px;
 }
 
-.faq__item[open] .faq__arrow {
+.faq__item.is-open .faq__arrow {
   transform: rotate(-135deg);
   margin-top: 5px;
 }
@@ -1860,7 +1860,7 @@ p {
 }
 .footer {
   --footer-color-white: #ffffff;
-  --footer-color-black: #000000;
+  --footer-color-black: #333333;
   --footer-color-gray: #888888;
   --footer-padding-y: 60px;
   --footer-content-width: 1200px;

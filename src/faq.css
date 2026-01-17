@@ -4,7 +4,6 @@
   --faq-color-white: #ffffff;
   --faq-color-border: #236fa6;
   --faq-content-width: 800px;
-
   width: 100%;
   padding: 80px 24px;
   color: var(--faq-color-text);
@@ -74,7 +73,7 @@
   margin-top: -5px;
 }
 
-.faq__item.is-open .faq__arrow {
+.faq__item[open] .faq__arrow {
   transform: rotate(-135deg);
   margin-top: 5px;
 }
@@ -91,16 +90,13 @@
   .faq__summary {
     padding: 20px 16px;
   }
-
   .faq__icon-q {
     margin-right: 12px;
   }
-
   .faq__answer {
     padding: 0 16px 20px 16px;
   }
-
   .faq__question-text {
     font-size: 15px;
   }
-}
+}/*# sourceMappingURL=faq.css.map */
