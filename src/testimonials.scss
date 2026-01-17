@@ -44,6 +44,16 @@
 .testimonials__item {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.testimonials__item.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
 .testimonials__img-wrapper {

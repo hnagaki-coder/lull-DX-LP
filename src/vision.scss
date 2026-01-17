@@ -54,6 +54,15 @@
   line-height: 1.8;
   text-align: left;
   display: inline-block;
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.vision__text.is-inview {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 

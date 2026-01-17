@@ -125,6 +125,15 @@ $brand-gradient-x: linear-gradient(90deg,
     $brand-gradient-x border-box;
   background-clip: padding-box, border-box;
   padding: 40px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.requirements__box.is-inview {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .requirements__title-area {

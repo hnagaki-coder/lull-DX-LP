@@ -40,6 +40,7 @@
   margin-bottom: 50px;
   width: 800px;
   margin: 0 auto 18px;
+  scroll-margin-top: 90px;
 }
 
 .partners__block:last-child {
@@ -58,6 +59,15 @@
   gap: 24px;
   align-items: center;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.partners__content.is-inview {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .partners__img-wrapper {
