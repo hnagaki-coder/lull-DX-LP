@@ -1,18 +1,6 @@
 /* =========================================
-   Header Layout
-   ========================================= */
-:root {
-  --header-height: 80px;
-  --header-content-width: 1120px;
-  --header-bg: #ffffff;
-  --header-text: #333333;
-  --header-btn-start: #236fa6;
-  --header-btn-end: #3496bf;
-  --header-radius: 4px;
-  --header-font: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-}
-
-
+  Header Layout
+  ========================================= */
 
 .header {
   position: fixed;
@@ -53,10 +41,16 @@
   opacity: 0.75;
 }
 
-.header__logo-text {
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: 0.04em;
+.header__logo-img {
+  display: block;
+  height: 28px;
+  width: auto;
+}
+
+
+/* Push page content below fixed header so first section is not hidden */
+body {
+  padding-top: var(--header-height);
 }
 
 @media (max-width: 768px) {
@@ -68,8 +62,8 @@
     padding: 0 16px;
   }
 
-  .header__logo-text {
-    font-size: 16px;
+  .header__logo-img {
+    height: 22px;
   }
 
 }

@@ -1,9 +1,8 @@
 :root {
-  --color-white: #ffffff;
-  --color-black: #333333;
-  --color-text: #333333;
-  --color-primary: #236FA6;
-  --color-primary-gradient: linear-gradient(90deg, #236FA6 0%, #3496BF 100%);
+  /* 共通色はstyle.scssの:rootを使用 */
+  --color-primary: var(--brand-primary);
+  --color-primary-gradient: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-primary-accent) 100%);
+  /* 以下はProblemsセクション固有（値そのまま維持） */
   --border-color: #2e8ebf;
   --content-width: 800px;
   --font-size-base: 16px;
@@ -24,8 +23,7 @@ body {
   font-family: var(--font-family-base);
   color: var(--color-text);
   font-size: var(--font-size-base);
-  background-color: #ffffff;
-  padding: 50px 0;
+  background-color: var(--color-white);
 }
 
 .problems {
@@ -123,6 +121,9 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .problems {
+    margin-bottom: 62px;
+  }
   .problems__list {
     grid-template-columns: 1fr;
     gap: 16px;

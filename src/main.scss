@@ -1,6 +1,7 @@
 // Bundle entry for all SCSS partials (order matches index.html).
 @use "header";
 @use "hero";
+@use "hero-image";
 @use "fast-content";
 @use "problems";
 @use "solution";
@@ -8,7 +9,7 @@
 @use "partners";
 @use "testimonials";
 @use "have";
-@use "how-it-works";
+@use "requirements";
 @use "flow";
 @use "selection";
 @use "faq";

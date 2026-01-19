@@ -3,16 +3,15 @@
   --partners-color-primary: #236FA6;
   --partners-color-bg: #ffffff;
   --partners-content-width: 800px;
-  --partners-font-size-base: 16px;
   --partners-font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
 .partners {
   width: 100%;
-  background-color: var(--partners-color-bg);
-  padding: 60px 24px;
+  background-color: var(--partners-color-bg, var(--color-white));
+  padding: 80px 24px 18px;
   font-family: var(--partners-font-family);
-  color: var(--partners-color-text);
+  color: var(--partners-color-text, var(--color-text));
   line-height: 1.6;
 }
 
@@ -39,7 +38,7 @@
 .partners__block {
   margin-bottom: 50px;
   width: 800px;
-  margin: 0 auto 18px;
+  margin: 0 auto 24px;
   scroll-margin-top: 90px;
 }
 
@@ -51,7 +50,8 @@
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-  color: var(--partners-color-primary);
+  margin-bottom: 16px;
+  color: var(--partners-color-primary, var(--brand-primary));
 }
 
 .partners__content {
@@ -75,11 +75,14 @@
   width: 320px;
   height: 160px;
   border-radius: 8px;
+  overflow: hidden; /* ensure child image corners are clipped on desktop as well */
 }
 
 .partners__img {
   width: 100%;
-  border-radius: 4px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .partners__cities {
@@ -103,6 +106,18 @@
 }
 
 @media screen and (max-width: 768px) {
+  .partners {
+    padding: 0 24px 0;
+    margin-bottom: 72px;
+  }
+  .partners__region-title {
+    margin: 0 0 16px;
+  }
+  .partners__block {
+    width: 100%;
+    margin: 0 auto 40px;
+  }
+
   .partners__content {
     flex-direction: column;
     gap: 20px;
@@ -112,15 +127,42 @@
   .partners__img-wrapper {
     flex: none;
     width: 100%;
-    max-width: 400px;
+    height: 200px;
+    max-width: 320px;
+    margin: 0 auto;
+    overflow: hidden;
   }
 
   .partners__cities {
     width: 100%;
     max-width: 400px;
+    text-align: center;
   }
 
   .partners__list {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px 12px;
+    justify-items: center;
+  }
+
+  /* 単一アイテム時は1カラムにして中央寄せ */
+  .partners__list:not(:has(> .partners__item:nth-child(2))) {
+    grid-template-columns: 1fr;
+  }
+
+  .partners__item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .partners__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .partners__block:last-child {
+    margin-bottom: 0;
   }
 }

@@ -1,6 +1,5 @@
 :root {
   --testimonials-color-text: #333333;
-  --testimonials-color-primary: #236fa6;
   --testimonials-color-bg: #ffffff;
   --testimonials-content-width: 1000px;
   --testimonials-font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -8,10 +7,10 @@
 
 .testimonials {
   width: 100%;
-  background-color: var(--testimonials-color-bg);
+  background-color: var(--testimonials-color-bg, var(--color-white));
   padding: 80px 24px;
   font-family: var(--testimonials-font-family);
-  color: var(--testimonials-color-text);
+  color: var(--testimonials-color-text, var(--color-text));
   line-height: 1.8;
 }
 
@@ -74,6 +73,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .testimonials {
+    padding: 0 24px 0;
+    margin-bottom: 72px;
+  }
   .testimonials__list {
     grid-template-columns: 1fr;
     gap: 60px;

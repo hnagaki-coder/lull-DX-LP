@@ -2,10 +2,9 @@
    Fast Contents (Region DX)
    ========================================= */
 :root {
-  --color-white: #ffffff;
-  --color-black: #333333;
-  --bg-gradient-start: #236fa6;
-  --bg-gradient-end: #3496bf;
+  /* 共通色はstyle.scssの:rootを使用 */
+  --bg-gradient-start: var(--brand-primary);
+  --bg-gradient-end: var(--brand-primary-accent);
   --content-width: 1200px;
   --grid-gap: 4px;
   --font-family-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -16,6 +15,7 @@
   background-color: var(--color-white);
   font-family: var(--font-family-base);
   color: var(--color-black);
+  margin: 0 0 104px; /* Section spacing below on desktop */
 }
 
 .region-dx-inner {
@@ -118,6 +118,9 @@
 }
 
 @media screen and (max-width: 480px) {
+  .region-dx {
+    margin-bottom: 72px; /* Mobile section spacing */
+  }
   .region-dx__title {
     font-size: 24px;
   }

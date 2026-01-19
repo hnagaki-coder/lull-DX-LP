@@ -7,8 +7,8 @@
   --footer-font-size-small: 12px;
 
   width: 100%;
-  background-color: var(--footer-color-black);
-  color: var(--footer-color-white);
+  background-color: var(--footer-color-black, var(--color-black));
+  color: var(--footer-color-white, var(--color-white));
   padding: var(--footer-padding-y) 0;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .footer__link {
-  color: var(--footer-color-white);
+  color: var(--footer-color-white, var(--color-white));
   text-decoration: none;
   font-size: 14px;
   transition: opacity 0.3s ease;

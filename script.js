@@ -288,6 +288,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const outerCircles = document.querySelectorAll('.diagram-wrapper .outer-circle');
   const innerCircles = document.querySelectorAll('.diagram-wrapper .inner-circle');
   const nodeGroups = document.querySelectorAll('.diagram-wrapper .node-group');
+  const mobileDescContainer = document.querySelector('.have__descriptions');
+  const descNodes = document.querySelectorAll('.diagram-wrapper .description');
+  const originalDescParents = new Map();
+  descNodes.forEach((d) => originalDescParents.set(d, d.parentElement));
 
   if (diagramWrapper && outerCircles.length > 0) {
     const revealDiagram = () => {
@@ -355,6 +359,52 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // Mobile-only: move description texts below the diagram for vertical stacking
+  const mqMobileHave = window.matchMedia('(max-width: 640px)');
+  const moveDescriptionsForMobile = () => {
+    if (!mobileDescContainer) return;
+    if (mqMobileHave.matches) {
+      descNodes.forEach((d) => {
+        if (d.parentElement === mobileDescContainer || d.parentElement?.classList?.contains('have__desc-item')) {
+          return; // already moved
+        }
+        const parent = originalDescParents.get(d);
+        let titleText = '';
+        if (parent) {
+          const inner = parent.querySelector('.inner-circle');
+          if (inner) titleText = inner.textContent.trim().replace(/\s+/g, ' ');
+        }
+        const item = document.createElement('div');
+        item.className = 'have__desc-item';
+        if (parent) {
+          const pos = ['tl', 'tr', 'bl', 'br'].find((cls) => parent.classList.contains(cls));
+          if (pos) item.classList.add(`pos-${pos}`);
+        }
+        const titleEl = document.createElement('h4');
+        titleEl.className = 'have__desc-title';
+        titleEl.textContent = titleText;
+        item.appendChild(titleEl);
+        item.appendChild(d);
+        mobileDescContainer.appendChild(item);
+      });
+    } else {
+      // Restore to original node-group (prepend to keep original order before circles) and remove wrappers/titles
+      descNodes.forEach((d) => {
+        const parent = originalDescParents.get(d);
+        // capture current wrapper before moving d
+        const wrapper = d.parentElement;
+        if (parent && wrapper !== parent) {
+          parent.prepend(d);
+        }
+        if (wrapper && wrapper.classList && wrapper.classList.contains('have__desc-item')) {
+          wrapper.remove();
+        }
+      });
+    }
+  };
+  moveDescriptionsForMobile();
+  mqMobileHave.addEventListener ? mqMobileHave.addEventListener('change', moveDescriptionsForMobile) : mqMobileHave.addListener(moveDescriptionsForMobile);
 
   const flowPanel = document.querySelector('.flow__panel');
   const flowNodes = document.querySelectorAll('.flow__node');

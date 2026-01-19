@@ -11,8 +11,8 @@
   <header class="header">
     <div class="header__inner">
       <div class="header__logo">
-        <a href="/" class="header__logo-link">
-          <span class="header__logo-text">LULL.inc</span>
+        <a href="/" class="header__logo-link" aria-label="LULL.inc ホーム">
+          <img src="./img/logo/lull-logo.svg" alt="LULL.inc" class="header__logo-img">
         </a>
       </div>
       <div class="header__action">
@@ -20,7 +20,8 @@
       </div>
     </div>
   </header>
-  <section class="hero">
+
+  <!-- <section class="hero">
     <div class="hero__inner">
       <div class="hero__content">
         <div class="hero__text-group">
@@ -43,7 +44,22 @@
       <img class="hex-7-image" src="./img/hero-hex/hex-7.png" alt="">
       <img class="hex-8-image" src="./img/hero-hex/hex-8.png" alt="">
     </div>
+  </section> -->
+
+  <section class="hero-image">
+    <div class="hero-image__inner">
+      <picture class="hero-image__media">
+        <source srcset="./img/fastview-sp.svg" media="(max-width: 768px)">
+        <img src="./img/fastview.svg" alt="">
+      </picture>
+      <div class="hero-image__content">
+        <div class="hero-image__text-group">
+          <a href="#contact" class="hero-image__btn">申し込む</a>
+        </div>
+      </div>
+    </div>
   </section>
+
   <section class="region-dx">
     <div class="section-inner region-dx-inner">
           <div class="region-dx__header-bg">
@@ -94,9 +110,7 @@
           </div>
     </div>
   </section>
-  <main style="display:flex;flex-direction:column;gap:18px;justify-content:center;align-items:center;min-height:40vh;">
-    <img src="./img/Frame 38669.svg" alt="">
-    <section class="problems">
+  <section class="problems">
       <div class="problems__inner">
         <div class="problems__box">
           <div class="problems__title-wrapper">
@@ -123,13 +137,12 @@
         </div>
       </div>
     </section>
-  </main>
 
   <section class="solution">
     <div class="section-inner solution__inner">
       <div class="solution__list">
         <div class="solution__item">
-          <img src="./img/pc-icon.svg" alt="リモート業務アイコン" class="solution__icon">
+          <img src="./img/pc-icon.svg" alt="リモート業務アイコン" class="solution__icon" style="margin-right: 8px;">
           <div class="solution__content">
             <h3 class="solution__title">リモート業務の受託</h3>
             <p class="solution__description">
@@ -139,7 +152,7 @@
           </div>
         </div>
         <div class="solution__item">
-          <img src="./img/talk-icon.svg" alt="地域マネージャーアイコン" class="solution__icon">
+          <img src="./img/talk-icon.svg" alt="地域マネージャーアイコン" class="solution__icon" style="margin-left: 16px;">
           <div class="solution__content">
             <h3 class="solution__title">地域マネージャーとしての活動</h3>
             <p class="solution__description">
@@ -149,7 +162,7 @@
           </div>
         </div>
         <div class="solution__item">
-          <img src="./img/graph-icon.svg" alt="Webマーケティングアイコン" class="solution__icon">
+          <img src="./img/graph-icon.svg" alt="Webマーケティングアイコン" class="solution__icon" style="margin-left: 16px;">
           <div class="solution__content">
             <h3 class="solution__title">Webマーケティング</h3>
             <p class="solution__description">
@@ -159,7 +172,7 @@
           </div>
         </div>
         <div class="solution__item">
-          <img src="./img/mountain-icon.svg" alt="一次産業サポートアイコン" class="solution__icon">
+          <img src="./img/mountain-icon.svg" alt="一次産業サポートアイコン" class="solution__icon" style="margin-left: 16px;">
           <div class="solution__content">
             <h3 class="solution__title">一次産業のサポート</h3>
             <p class="solution__description">
@@ -173,7 +186,7 @@
   </section>
 
   <section class="vision">
-    <div class="section-innser vision__inner">
+    <div class="section-inner vision__inner">
       <div class="vision__box">
         <h2 class="vision__title">こんな思いでやってます～テキストテキストテキスト</h2>
         <p class="vision__text">
@@ -371,7 +384,7 @@
 
     <section class="have">
       <div class="section-inner">
-        <div class="testimonials__title-area">
+        <div class="have__title-area">
           <h2 class="section-title">会社連携</h2>
         </div>
               <div class="have__diagram-area">
@@ -420,6 +433,7 @@
                   </div>
                 </div>
               </div>
+              <div class="have__descriptions"></div>
       </div>
 
     </section>
@@ -696,9 +710,8 @@
           <a href="https://www.rito-hyakka.jp/" class="footer__link">運営事務局リンク</a>
         </div>
         <div class="footer__logo">
-          <a href="/" class="footer__logo-link">
-            <img src="https://placehold.jp/000000/ffffff/150x40.png?text=LULL.inc" alt="LULL.inc"
-              class="footer__logo-img">
+          <a href="/" class="footer__logo-link" aria-label="LULL.inc ホーム">
+            <img src="./img/logo/lull-logo.svg" alt="LULL.inc" class="footer__logo-img">
           </a>
         </div>
       </div>

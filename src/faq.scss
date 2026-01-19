@@ -7,7 +7,7 @@
 
   width: 100%;
   padding: 80px 24px;
-  color: var(--faq-color-text);
+  color: var(--faq-color-text, var(--color-text));
 }
 
 .faq__inner {
@@ -18,7 +18,7 @@
 
 .faq .section-title-area {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 24px;
 }
 
 .faq__list {
@@ -28,8 +28,8 @@
 }
 
 .faq__item {
-  background-color: var(--faq-color-white);
-  border: 1px solid var(--faq-color-border);
+  background-color: var(--faq-color-white, var(--color-white));
+  border: 1px solid var(--faq-color-border, var(--brand-primary));
   border-radius: 6px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -50,7 +50,7 @@
 }
 
 .faq__icon-q {
-  color: var(--faq-color-primary);
+  color: var(--faq-color-primary, var(--brand-primary));
   font-size: 20px;
   font-weight: bold;
   margin-right: 20px;
@@ -66,8 +66,8 @@
 .faq__arrow {
   width: 12px;
   height: 12px;
-  border-right: 2px solid var(--faq-color-primary);
-  border-bottom: 2px solid var(--faq-color-primary);
+  border-right: 2px solid var(--faq-color-primary, var(--brand-primary));
+  border-bottom: 2px solid var(--faq-color-primary, var(--brand-primary));
   transform: rotate(45deg);
   margin-left: 20px;
   transition: transform 0.3s ease;
@@ -83,11 +83,15 @@
   padding: 0 30px 30px 70px;
   font-size: 14px;
   line-height: 1.8;
-  color: var(--faq-color-text);
+  color: var(--faq-color-text, var(--color-text));
   border-top: 1px solid transparent;
 }
 
 @media screen and (max-width: 768px) {
+  .faq {
+    padding: 0 24px 0;
+    margin-bottom: 72px;
+  }
   .faq__summary {
     padding: 20px 16px;
   }

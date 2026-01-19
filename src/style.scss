@@ -10,6 +10,33 @@ $brand-gradient-x: linear-gradient(90deg,
     $brand-color-start,
     $brand-color-end);
 
+/* Global CSS custom properties (shared across sections) */
+:root {
+  /* Global color tokens */
+  --color-white: #ffffff;
+  --color-black: #333333;
+  --color-text: #333333;
+
+  /* Brand palette (CSS variables counterpart) */
+  --brand-primary: #236fa6;
+  --brand-primary-accent: #3496bf;
+
+  --header-height: 80px;
+  --header-content-width: 1120px;
+  --header-bg: #ffffff;
+  --header-text: #333333;
+  --header-btn-start: #236fa6;
+  --header-btn-end: #3496bf;
+  --header-radius: 4px;
+  --header-font: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+/* Prevent horizontal overflow on small screens */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .section-title {
   position: relative;
   display: inline-block;
@@ -110,6 +137,31 @@ p {
 }
 
 @media (max-width: 768px) {
+  .section-title {
+    /* Larger for readability on small screens */
+    font-size: clamp(18px, 5vw, 28px);
+    padding: 14px 32px;
+    /* 明示的に左右のボーダーを無効化（見えない保険） */
+    border-left-style: none;
+    border-right-style: none;
+    border-left-width: 0;
+    border-right-width: 0;
+    /* モバイルは上下ラインのみを背景で描画し、左右の縦ラインを完全排除 */
+    border-top: 0;
+    border-bottom: 0;
+    background:
+      linear-gradient(90deg, $brand-color-start, $brand-color-end) top / 100% 3px no-repeat,
+      linear-gradient(90deg, $brand-color-start, $brand-color-end) bottom / 100% 3px no-repeat,
+      linear-gradient(#ffffff, #ffffff);
+    background-clip: border-box;
+  }
+
+  /* スマホ時は左右の装飾（疑似要素）を非表示 */
+  // .section-title::before,
+  // .section-title::after {
+  //   display: none;
+  //   content: none;
+  // }
 
   .cta_button {
     padding: 8px 20px;

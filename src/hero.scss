@@ -2,10 +2,8 @@
    Base Settings & Variables
    ========================================= */
 :root {
-  --color-text: #333333;
-  --color-black: #333333;
-  --color-white: #ffffff;
-  --color-primary-blue: #236fa6;
+  /* 共通色はstyle.scssの:rootを使用 */
+  --color-primary-blue: var(--brand-primary);
   --content-width: 1200px;
   --hero-height: 700px;
   --font-family-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
@@ -66,7 +64,7 @@ img {
 .hero__content {
   padding-top: 40px;
   position: absolute;
- right: 179px;
+  right: 179px;
 }
 
 .hero__text-group {
@@ -219,6 +217,22 @@ font-size: clamp(32px, 5vw, 64px);
   }
 }
 
+/* Desktop layout: place content starting at 20% from the left using Grid */
+@media screen and (min-width: 961px) {
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 10% 1fr;
+    align-items: center;
+  }
+  .hero__content {
+    position: static;
+    right: auto;
+    left: auto;
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .hero {
     background-image: linear-gradient(
@@ -227,8 +241,10 @@ font-size: clamp(32px, 5vw, 64px);
       var(--color-primary-blue) 40.1%
     );
     height: auto;
+    padding-top: var(--header-height);
     padding-bottom: 300px;
     display: block;
+    margin-bottom: 72px;
   }
 
   .hero__inner {
@@ -237,6 +253,9 @@ font-size: clamp(32px, 5vw, 64px);
   }
 
   .hero__content {
+    position: static;
+    right: auto;
+    left: auto;
     width: 100%;
     text-align: center;
     margin-bottom: 40px;

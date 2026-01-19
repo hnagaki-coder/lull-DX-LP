@@ -9,11 +9,9 @@
   --selection-white: #ffffff;
   --selection-circle-bg: #d0eaf5;
   --selection-font: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-
   width: 100%;
-  padding: 80px 0;
-  background-color: var(--selection-bg);
-  color: var(--selection-text);
+  background-color: var(--selection-bg, var(--color-white));
+  color: var(--selection-text, var(--color-text));
   font-family: var(--selection-font);
 }
 
@@ -23,7 +21,7 @@
 
 .selection__title-area {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 24px;
 }
 
 .selection__circles {
@@ -58,7 +56,7 @@
 }
 
 .selection__circle-step {
-  color: var(--selection-primary);
+  color: var(--selection-primary, var(--brand-primary));
   font-weight: 700;
   font-size: 14px;
   margin-bottom: 5px;
@@ -81,8 +79,8 @@
 
 .selection__box {
   width: 730px;
-  background-color: var(--selection-white);
-  border: 2px solid var(--selection-primary);
+  background-color: var(--selection-white, var(--color-white));
+  border: 2px solid var(--selection-primary, var(--brand-primary));
   border-radius: 6px;
   padding: 24px 30px;
   display: flex;
@@ -127,7 +125,7 @@
 }
 
 .selection__arrow {
-  color: var(--selection-primary);
+  color: var(--selection-primary, var(--brand-primary));
   font-size: 30px;
   font-weight: 700;
   line-height: 1;
@@ -145,21 +143,28 @@
 
 .selection__action {
   text-align: center;
+  margin-bottom: 16px;
 }
 
 .selection__action .cta_button {
   padding: 16px 80px;
   font-size: 18px;
-  background: linear-gradient(90deg, var(--selection-primary) 0%, var(--selection-primary-end) 100%);
+  background: linear-gradient(90deg, var(--selection-primary, var(--brand-primary)) 0%, var(--selection-primary-end, var(--brand-primary-accent)) 100%);
 }
 
 @media screen and (max-width: 768px) {
   .selection {
-    padding: 60px 0;
+    padding: 0;
+    margin-bottom: 72px;
+  }
+
+  .selection__flow {
+    width: 100%;
   }
 
   .selection__circles {
     gap: 15px;
+    display: none;
   }
 
   .selection__circle {
@@ -176,6 +181,9 @@
   }
 
   .selection__box {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 20px;
   }
 

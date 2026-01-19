@@ -1,6 +1,5 @@
-$brand-color-start: #245E96;
-$brand-color-end: #329BBD;
-$brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
+@use "style" as style;
+$brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand-color-end);
 
 .have {
   --ripple-size: 40px;
@@ -18,8 +17,19 @@ $brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
   --desc-gap: 30px;
   --node-shift-x: clamp(36px, 8vw, 100px);
   --node-shift-y: clamp(16px, 4.5vw, 60px);
-  padding: 60px 0 80px;
-  background-color: #ffffff;
+  padding: 0 0 80px;
+  background-color: var(--color-white);
+}
+
+.have__title-area {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .have .section-inner .have__title-area,
+  .have__title-area {
+    margin-bottom: 16px;
+  }
 }
 
 .have__diagram-area {
@@ -41,6 +51,9 @@ $brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
 .have .center-title {
   position: absolute;
   z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-60% + var(--center-title-offset, 0px)));
   font-size: clamp(32px, 5vw, 64px);
   font-weight: 900;
   text-align: center;
@@ -88,7 +101,7 @@ $brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #ffffff;
+  color: var(--color-white);
   font-size: clamp(12px, 1.8vw, 17px);
   font-weight: 700;
   line-height: 1.3;
@@ -107,6 +120,7 @@ $brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
   top: 0;
   left: 0;
   transform: translate(var(--node-shift-x), var(--node-shift-y));
+  z-index: 60; /* ensure tl stacks above other nodes when overlapping */
 }
 
 .have .tr {
@@ -185,7 +199,7 @@ $brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
 
 .have .tr-desc {
   top: var(--desc-gap);
-  right: calc(-1.3 * var(--desc-offset));
+  right: calc(-1.4 * var(--desc-offset));
   color: #e68a00;
 }
 
@@ -203,11 +217,99 @@ $brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
 
 @media (max-width: 640px) {
   .have {
-    --desc-offset: clamp(70px, 14vw, 120px);
-    padding: 40px 0 60px;
+    --desc-offset: 100px;
+    --center-title-offset: 0px;
+    padding: 0;
+    margin-bottom: 72px;
+    /* Fixed mobile layout for consistent spacing */
+    --diagram-width: 360px;
+    --diagram-height: 360px;
+    --node-size: 200px;
+    --inner-size: calc(var(--node-size) * 0.53);
+    --node-shift-x: 2px; /* reduce by 10px to widen left/right gap by ~20px */
+    --node-shift-y: 12px;
   }
 
   .have .center-title {
     letter-spacing: -0.5px;
   }
+
+  /* Container to stack descriptions moved below diagram */
+  .have__descriptions {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 400px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+  }
+
+  .have__descriptions .description {
+    position: static;
+    width: 100%;
+    opacity: 1;
+    transform: none;
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+    color: var(--color-text); /* override colored tl/tr/bl/br in mobile list */
+  }
+
+  .have__desc-title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 0 0 16px;
+  }
+
+  /* Map title colors to original node color accents (position-safe classes) */
+  .have__descriptions .pos-tl .have__desc-title { color: #d6335a; }
+  .have__descriptions .pos-tr .have__desc-title { color: #e68a00; }
+  .have__descriptions .pos-bl .have__desc-title { color: #4387b5; }
+  .have__descriptions .pos-br .have__desc-title { color: #2d8a6b; }
+
+  /* Fixed-size wrapper on mobile */
+  .have .diagram-wrapper {
+    width: var(--diagram-width);
+    height: var(--diagram-height);
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  /* Keep inner circles centered within their nodes on mobile */
+  /* (No horizontal left offset overrides here) */
+
+  /* Use symmetric corner placement with fixed shifts */
+  /* (tl/tr/bl/br base transforms from desktop remain valid with new vars) */
+
+  /* Extra-narrow screens: tighten a bit more to avoid any overlap */
+  @media (max-width: 360px) {
+    .have {
+      --diagram-width: 320px;
+      --diagram-height: 320px;
+      --node-size: 180px;
+      --inner-size: calc(var(--node-size) * 0.50);
+      --node-shift-x: 0px; /* reduce by 10px for ~20px wider gap on very narrow */
+      --node-shift-y: 10px;
+    }
+    /* keep +40px on extra-narrow as well */
+    .have .inner-circle.is-inview {
+      width: calc(var(--inner-size) + 40px);
+      height: calc(var(--inner-size) + 40px);
+    }
+  }
 }
+
+/* Apply vertical separation for typical smartphone widths as well */
+@media (max-width: 768px) {
+  /* Add ~20px extra vertical separation: top row up 10px, bottom row down 10px */
+  .have .tl { transform: translate(var(--node-shift-x), calc(var(--node-shift-y) - 20px)); }
+  .have .tr { transform: translate(calc(-1 * var(--node-shift-x)), calc(var(--node-shift-y) - 20px)); }
+  .have .bl { transform: translate(var(--node-shift-x), calc(-1 * var(--node-shift-y) - 0px)); }
+  .have .br { transform: translate(calc(-1 * var(--node-shift-x)), calc(-1 * var(--node-shift-y) - 0px)); }
+}
+  /* Enlarge only visible inner circles by +40px (keep centered) */
+  .have .inner-circle.is-inview {
+    width: calc(var(--inner-size) + 40px);
+    height: calc(var(--inner-size) + 40px);
+  }

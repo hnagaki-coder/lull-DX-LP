@@ -4,8 +4,6 @@
 :root {
   --vision-color-text: #333333;
   --vision-color-white: #ffffff;
-  --vision-btn-gradient-start: #236FA6;
-  --vision-btn-gradient-end: #3496BF;
   --vision-font-size-base: 16px;
   --vision-border-radius-base: 4px;
   --vision-border-radius-box: 16px;
@@ -23,7 +21,7 @@
   display: flex;
   align-items: center;
   font-family: var(--vision-font-family);
-  color: var(--vision-color-text);
+  color: var(--vision-color-text, var(--color-text));
 }
 
 .vision__inner {
@@ -34,7 +32,7 @@
 }
 
 .vision__box {
-  background-color: var(--vision-color-white);
+  background-color: var(--vision-color-white, var(--color-white));
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   padding: 40px;
@@ -69,6 +67,7 @@
 @media screen and (max-width: 768px) {
   .vision {
     padding: 60px 16px;
+    margin-bottom: 72px;
     min-height: auto;
   }
 

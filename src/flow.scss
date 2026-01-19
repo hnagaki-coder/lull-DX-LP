@@ -1,15 +1,14 @@
-$brand-color-start: #245E96;
-$brand-color-end: #329BBD;
-$brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
+@use "style" as style;
+$brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand-color-end);
 
 .flow {
-  padding: 70px 0 40px;
+  padding: 0px 0 80px;
   color: #1f2b3a;
 }
 
 .flow__title-area {
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
 .flow__subtitle {
@@ -62,7 +61,7 @@ $brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
 }
 
 .flow__label {
-  color: #ffffff;
+  color: var(--color-white);
   font-weight: 700;
   font-size: 18px;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -90,8 +89,8 @@ $brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
 }
 
 .flow__hex-shape path {
-  fill: #ffffff;
-  stroke: #ffffff;
+  fill: var(--color-white);
+  stroke: var(--color-white);
   stroke-width: 30;
   stroke-linejoin: round;
   stroke-linecap: round;
@@ -172,4 +171,20 @@ $brand-gradient-x: linear-gradient(90deg, $brand-color-start, $brand-color-end);
   }
 
 
+}
+
+@media (max-width: 768px) {
+  .flow {
+    padding: 0; /* no internal bottom padding; use external spacing only */
+    margin-bottom: 72px; /* unify section spacing on mobile */
+  }
+  .flow__panel {
+    /* Make background full-bleed on mobile while keeping inner padding */
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;
+    border-radius: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
