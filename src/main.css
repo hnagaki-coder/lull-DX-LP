@@ -1049,7 +1049,8 @@ body {
   }
   .partners__region-title {
     left: 50%;
-    transform: translateX(-50%);
+    top: calc(var(--partners-image-height) / 2.2);
+    transform: translate(-50%, -50%);
   }
   .partners__block {
     width: 100%;
@@ -1065,6 +1066,7 @@ body {
   .partners__img-wrapper {
     flex: none;
     width: var(--partners-image-width);
+    height: var(--partners-image-height);
     margin: 0 auto;
     overflow: hidden;
   }
