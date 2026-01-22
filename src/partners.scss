@@ -40,6 +40,9 @@
   width: 800px;
   margin: 0 auto 24px;
   scroll-margin-top: 90px;
+  position: relative;
+  --partners-image-width: 320px;
+  --partners-image-height: 160px;
 }
 
 .partners__block:last-child {
@@ -47,17 +50,30 @@
 }
 
 .partners__region-title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: var(--partners-image-width);
+  height: var(--partners-image-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0 12px;
   text-align: center;
-  font-size: 18px;
+  font-size: clamp(16px, 1.875vw, 24px);
   font-weight: bold;
-  margin-bottom: 16px;
-  color: var(--partners-color-primary, var(--brand-primary));
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .partners__content {
   display: flex;
   gap: 24px;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
   opacity: 0;
   transform: translateY(-16px);
@@ -72,9 +88,9 @@
 
 .partners__img-wrapper {
   flex: 0 0 40%;
-  width: 320px;
-  height: 160px;
+  width: var(--partners-image-width);
   border-radius: 8px;
+  font-size: clamp(16px, 1.875vw, 24px);
   overflow: hidden; /* ensure child image corners are clipped on desktop as well */
 }
 
@@ -87,12 +103,15 @@
 
 .partners__cities {
   flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: var(--partners-image-height);
 }
 
 .partners__list {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px 20px;
   padding: 0;
   margin: 0;
@@ -111,11 +130,14 @@
     margin-bottom: 72px;
   }
   .partners__region-title {
-    margin: 0 0 16px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .partners__block {
     width: 100%;
     margin: 0 auto 40px;
+    --partners-image-width: min(100%, 320px);
+    --partners-image-height: 200px;
   }
 
   .partners__content {
@@ -126,9 +148,8 @@
 
   .partners__img-wrapper {
     flex: none;
-    width: 100%;
-    height: 200px;
-    max-width: 320px;
+    width: var(--partners-image-width);
+    // height: var(--partners-image-height);
     margin: 0 auto;
     overflow: hidden;
   }
@@ -140,16 +161,11 @@
   }
 
   .partners__list {
-    grid-template-columns: repeat(2, 1fr);
     gap: 8px 12px;
-    justify-items: center;
+    justify-content: center;
   }
 
   /* 単一アイテム時は1カラムにして中央寄せ */
-  .partners__list:not(:has(> .partners__item:nth-child(2))) {
-    grid-template-columns: 1fr;
-  }
-
   .partners__item {
     justify-content: center;
     text-align: center;
