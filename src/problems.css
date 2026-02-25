@@ -33,7 +33,7 @@ body {
 }
 
 .problems__inner {
-  max-width: var(--content-width);
+  max-width: 980px;
   margin: 0 auto;
 }
 
@@ -70,8 +70,9 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  width: 80%;
-  max-width: 400px;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: none;
 }
 
 .problems__title {
@@ -83,6 +84,7 @@ body {
   padding: 12px 24px;
   border-radius: var(--border-radius-title);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
 }
 
 .problems__list {

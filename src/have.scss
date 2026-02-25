@@ -36,6 +36,13 @@ $brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 0;
+}
+
+@media (min-width: 641px) {
+  .have__diagram-area {
+    margin-top: 50px;
+  }
 }
 
 .have .diagram-wrapper {
@@ -81,14 +88,13 @@ $brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand
   height: 100%;
   border-radius: 50%;
   mix-blend-mode: multiply;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  will-change: opacity;
+  opacity: 1;
 }
 
-.have .outer-circle.is-inview {
-  opacity: 1;
-  transition-delay: var(--reveal-delay, 0ms);
+.have .bl .outer-circle,
+.have .br .outer-circle {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .have .inner-circle {
@@ -125,8 +131,9 @@ $brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand
 
 .have .tr {
   top: 0;
-  right: 0;
-  transform: translate(calc(-1 * var(--node-shift-x)), var(--node-shift-y));
+  right: auto;
+  left: 50%;
+  transform: translate(-50%, var(--node-shift-y));
 }
 
 .have .bl {
@@ -179,16 +186,7 @@ $brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand
   font-size: clamp(12px, 1.5vw, 15px);
   line-height: 1.5;
   font-weight: 500;
-  opacity: 0;
-  transform: translateY(-12px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform;
-}
-
-.have .description.is-inview {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .have .tl-desc {
@@ -198,8 +196,10 @@ $brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand
 }
 
 .have .tr-desc {
-  top: var(--desc-gap);
-  right: calc(-1.4 * var(--desc-offset));
+  top: calc(0.6 * var(--desc-gap));
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, -100%);
   color: #e68a00;
 }
 
@@ -228,6 +228,11 @@ $brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand
     --inner-size: calc(var(--node-size) * 0.53);
     --node-shift-x: 2px; /* reduce by 10px to widen left/right gap by ~20px */
     --node-shift-y: 12px;
+  }
+
+  .have .tr {
+    left: auto;
+    transform: translate(calc(-1 * var(--node-shift-x)), var(--node-shift-y));
   }
 
   .have .center-title {

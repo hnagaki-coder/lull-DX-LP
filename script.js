@@ -130,10 +130,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const visionTitle = document.querySelector('.vision__title');
   const visionText = document.querySelector('.vision__text');
+  const visionAction = document.querySelector('.vision__action');
 
   if (visionTitle && visionText) {
     const revealVisionText = () => {
+      visionTitle.style.setProperty('--reveal-delay', '0ms');
+      visionTitle.classList.add('is-inview');
+
       visionText.classList.add('is-inview');
+
+      if (visionAction) {
+        visionAction.style.setProperty('--reveal-delay', '160ms');
+        visionAction.classList.add('is-inview');
+      }
     };
 
     if ('IntersectionObserver' in window) {
@@ -157,15 +166,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const regionHeader = document.querySelector('.region-dx__header-bg');
-  const regionItems = document.querySelectorAll('.region-dx__item');
+  const regionHeader = document.querySelector('.region-dx__header');
+  const regionHeaderBg = document.querySelector('.region-dx__header-bg');
 
-  if (regionHeader && regionItems.length > 0) {
-    const revealRegionItems = () => {
-      regionItems.forEach((item, index) => {
-        item.style.setProperty('--reveal-delay', `${index * 120}ms`);
-        item.classList.add('is-inview');
+  if (regionHeader) {
+    const revealRegionHeader = () => {
+      Array.from(regionHeader.children).forEach((item, index) => {
+        item.style.setProperty('--reveal-delay', `${index * 140}ms`);
       });
+      regionHeader.classList.add('is-inview');
     };
 
     if ('IntersectionObserver' in window) {
@@ -173,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         (entries, observerInstance) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              revealRegionItems();
+              revealRegionHeader();
               observerInstance.unobserve(entry.target);
             }
           });
@@ -183,9 +192,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       );
 
-      observer.observe(regionHeader);
+      if (regionHeaderBg) {
+        observer.observe(regionHeaderBg);
+      } else {
+        observer.observe(regionHeader);
+      }
     } else {
-      revealRegionItems();
+      revealRegionHeader();
+    }
+  }
+
+  const partnersSection = document.querySelector('.partners');
+  const partnersTitle = document.querySelector('.partners__title-area');
+  const partnerCards = document.querySelectorAll('.partners .area-card');
+
+  if (partnersSection && (partnersTitle || partnerCards.length > 0)) {
+    const revealPartners = () => {
+      if (partnersTitle) {
+        partnersTitle.style.setProperty('--reveal-delay', '0ms');
+        partnersTitle.classList.add('is-inview');
+      }
+
+      partnerCards.forEach((card, index) => {
+        card.style.setProperty('--reveal-delay', `${120 + index * 140}ms`);
+        card.classList.add('is-inview');
+      });
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries, observerInstance) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              revealPartners();
+              observerInstance.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+        }
+      );
+
+      observer.observe(partnersSection);
+    } else {
+      revealPartners();
     }
   }
 
@@ -222,26 +273,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const diagramWrapper = document.querySelector('.diagram-wrapper');
-  const outerCircles = document.querySelectorAll('.diagram-wrapper .outer-circle');
   const innerCircles = document.querySelectorAll('.diagram-wrapper .inner-circle');
-  const nodeGroups = document.querySelectorAll('.diagram-wrapper .node-group');
   const mobileDescContainer = document.querySelector('.have__descriptions');
   const descNodes = document.querySelectorAll('.diagram-wrapper .description');
   const originalDescParents = new Map();
   descNodes.forEach((d) => originalDescParents.set(d, d.parentElement));
 
-  if (diagramWrapper && outerCircles.length > 0) {
+  if (diagramWrapper && innerCircles.length > 0) {
     const revealDiagram = () => {
-      outerCircles.forEach((circle, index) => {
+      innerCircles.forEach((innerCircle, index) => {
         const delay = `${index * 300}ms`;
-        circle.style.setProperty('--reveal-delay', delay);
-        circle.classList.add('is-inview');
-
-        const innerCircle = innerCircles[index];
-        if (innerCircle) {
-          innerCircle.style.setProperty('--reveal-delay', delay);
-          innerCircle.classList.add('is-inview');
-        }
+        innerCircle.style.setProperty('--reveal-delay', delay);
+        innerCircle.classList.add('is-inview');
       });
     };
 
@@ -261,39 +304,8 @@ document.addEventListener('DOMContentLoaded', () => {
       );
 
       diagramObserver.observe(diagramWrapper);
-
-      const nodeObserver = new IntersectionObserver(
-        (entries, observerInstance) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const description = entry.target.querySelector('.description');
-              if (description) {
-                const index = Array.from(nodeGroups).indexOf(entry.target);
-                const delay = index >= 0 ? `${index * 300}ms` : '0ms';
-                description.style.setProperty('--reveal-delay', delay);
-                description.classList.add('is-inview');
-              }
-              observerInstance.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.3,
-        }
-      );
-
-      nodeGroups.forEach((group) => nodeObserver.observe(group));
     } else {
       revealDiagram();
-      nodeGroups.forEach((group) => {
-        const description = group.querySelector('.description');
-        if (description) {
-          const index = Array.from(nodeGroups).indexOf(group);
-          const delay = index >= 0 ? `${index * 300}ms` : '0ms';
-          description.style.setProperty('--reveal-delay', delay);
-          description.classList.add('is-inview');
-        }
-      });
     }
   }
 
