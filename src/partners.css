@@ -1,0 +1,43 @@
+:root {
+  --partners-color-text: #333333;
+  --partners-color-primary: #236FA6;
+  --partners-color-bg: #ffffff;
+  --partners-content-width: 800px;
+  --partners-font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.partners {
+  width: 100%;
+  background-color: var(--partners-color-bg, var(--color-white));
+  padding: 80px 24px 18px;
+  font-family: var(--partners-font-family);
+  color: var(--partners-color-text, var(--color-text));
+  line-height: 1.6;
+}
+
+.partners img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.partners__inner {
+  max-width: var(--partners-content-width);
+  margin: 0 auto;
+}
+
+.partners__title-area {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.partners__title-area .section-title {
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .partners {
+    padding: 0 24px 0;
+    margin-bottom: 72px;
+  }
+}/*# sourceMappingURL=partners.css.map */

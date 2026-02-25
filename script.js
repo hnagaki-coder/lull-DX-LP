@@ -189,37 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const partnerTitles = document.querySelectorAll('.partners__region-title');
-
-  if (partnerTitles.length > 0) {
-    const revealPartnerContent = (titleElement) => {
-      const content = titleElement.nextElementSibling;
-      if (content && content.classList.contains('partners__content')) {
-        content.classList.add('is-inview');
-      }
-    };
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(
-        (entries, observerInstance) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              revealPartnerContent(entry.target);
-              observerInstance.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.2,
-        }
-      );
-
-      partnerTitles.forEach((title) => observer.observe(title));
-    } else {
-      partnerTitles.forEach((title) => revealPartnerContent(title));
-    }
-  }
-
   const solutionList = document.querySelector('.solution__list');
   const solutionItems = document.querySelectorAll('.solution__item');
 
@@ -249,38 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
       observer.observe(solutionList);
     } else {
       revealSolutionItems();
-    }
-  }
-
-  const testimonialsList = document.querySelector('.testimonials__list');
-  const testimonialsItems = document.querySelectorAll('.testimonials__item');
-
-  if (testimonialsList && testimonialsItems.length > 0) {
-    const revealTestimonialsItems = () => {
-      testimonialsItems.forEach((item, index) => {
-        item.style.setProperty('--reveal-delay', `${index * 200}ms`);
-        item.classList.add('is-inview');
-      });
-    };
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(
-        (entries, observerInstance) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              revealTestimonialsItems();
-              observerInstance.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.2,
-        }
-      );
-
-      observer.observe(testimonialsList);
-    } else {
-      revealTestimonialsItems();
     }
   }
 

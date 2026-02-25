@@ -131,6 +131,7 @@ img {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -186,7 +187,8 @@ img {
 .hexagon img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
@@ -195,7 +197,8 @@ img {
   top: -3px;
   left: 48%;
   z-index: 5;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .hex-2-image {
@@ -203,7 +206,8 @@ img {
   top: -3px;
   right: -40px;
   z-index: 4;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .hex-3-image {
@@ -211,7 +215,8 @@ img {
   top: 37%;
   left: 67%;
   z-index: 3;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .hex-4-image {
@@ -219,7 +224,8 @@ img {
   bottom: -200px;
   right: -40px;
   z-index: 4;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .hex-5-image {
@@ -227,7 +233,8 @@ img {
   bottom: -200px;
   left: 48%;
   z-index: 4;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .hex-6-image {
@@ -235,7 +242,8 @@ img {
   bottom: -200px;
   left: -160px;
   z-index: 2;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .hex-7-image {
@@ -243,7 +251,8 @@ img {
   top: -188px;
   left: 67%;
   z-index: 3;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .hex-8-image {
@@ -251,7 +260,8 @@ img {
   top: -188px;
   left: 27%;
   z-index: 3;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media screen and (min-width: 1280px) {
@@ -454,145 +464,6 @@ img {
     text-align: center;
   }
 }
-/* =========================================
-   Fast Contents (Region DX)
-   ========================================= */
-:root {
-  /* 共通色はstyle.scssの:rootを使用 */
-  --bg-gradient-start: var(--brand-primary);
-  --bg-gradient-end: var(--brand-primary-accent);
-  --content-width: 1200px;
-  --grid-gap: 4px;
-  --font-family-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-}
-
-.region-dx {
-  width: 100%;
-  background-color: var(--color-white);
-  font-family: var(--font-family-base);
-  color: var(--color-black);
-  margin: 0 0 104px; /* Section spacing below on desktop */
-}
-
-.region-dx-inner {
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.region-dx__header {
-  background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-  color: var(--color-white);
-  text-align: center;
-  padding: 30px 24px;
-}
-
-.region-dx__title {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  letter-spacing: 0.05em;
-}
-
-.region-dx__description {
-  font-size: 14px;
-  line-height: 1.8;
-  max-width: 800px;
-  margin: 0 auto;
-  opacity: 0.9;
-}
-
-.region-dx__images {
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--grid-gap);
-  background-color: var(--color-white);
-}
-
-.region-dx__header-bg {
-  background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-  margin-bottom: 4px;
-}
-
-.region-dx__grid-wrapper {
-  background-color: var(--color-white);
-}
-
-.region-dx__item {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16/9;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  opacity: 0;
-  transform: translateY(-16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  will-change: opacity, transform;
-}
-
-.region-dx__item.is-inview {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: var(--reveal-delay, 0ms);
-}
-
-.region-dx__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.region-dx__item:hover .region-dx__img {
-  transform: scale(1.05);
-}
-
-.region-dx__name {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--color-white);
-  font-size: clamp(16px, 1.875vw, 24px);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.pc-only {
-  display: inline;
-}
-
-@media screen and (max-width: 960px) {
-  .region-dx__images {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media screen and (max-width: 480px) {
-  .region-dx {
-    margin-bottom: 72px; /* Mobile section spacing */
-  }
-  .region-dx__title {
-    font-size: 24px;
-  }
-  .region-dx__description {
-    font-size: 13px;
-    text-align: left;
-  }
-  .region-dx__images {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .region-dx__name {
-    font-size: 16px;
-  }
-  .pc-only {
-    display: none;
-  }
-}
 :root {
   /* 共通色はstyle.scssの:rootを使用 */
   --color-primary: var(--brand-primary);
@@ -785,7 +656,8 @@ body {
 .solution__icon {
   width: 220px;
   height: 220px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .solution__content {
@@ -953,233 +825,10 @@ body {
   margin: 0;
 }
 
-.partners__block {
-  margin-bottom: 50px;
-  width: 800px;
-  margin: 0 auto 24px;
-  scroll-margin-top: 90px;
-  position: relative;
-  --partners-image-width: 320px;
-  --partners-image-height: 160px;
-}
-
-.partners__block:last-child {
-  margin-bottom: 0;
-}
-
-.partners__region-title {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: var(--partners-image-width);
-  height: var(--partners-image-height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0 12px;
-  text-align: center;
-  font-size: clamp(16px, 1.875vw, 24px);
-  font-weight: bold;
-  color: #ffffff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
-  z-index: 2;
-  pointer-events: none;
-}
-
-.partners__content {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  will-change: opacity, transform;
-}
-
-.partners__content.is-inview {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.partners__img-wrapper {
-  flex: 0 0 40%;
-  width: var(--partners-image-width);
-  border-radius: 8px;
-  font-size: clamp(16px, 1.875vw, 24px);
-  overflow: hidden; /* ensure child image corners are clipped on desktop as well */
-}
-
-.partners__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
-
-.partners__cities {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  min-height: var(--partners-image-height);
-}
-
-.partners__list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 20px;
-  padding: 0;
-  margin: 0;
-}
-
-.partners__item {
-  font-size: 14px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
-
 @media screen and (max-width: 768px) {
   .partners {
     padding: 0 24px 0;
     margin-bottom: 72px;
-  }
-  .partners__region-title {
-    left: 50%;
-    top: calc(var(--partners-image-height) / 2.2);
-    transform: translate(-50%, -50%);
-  }
-  .partners__block {
-    width: 100%;
-    margin: 0 auto 40px;
-    --partners-image-width: min(100%, 320px);
-    --partners-image-height: 200px;
-  }
-  .partners__content {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-  .partners__img-wrapper {
-    flex: none;
-    width: var(--partners-image-width);
-    height: var(--partners-image-height);
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  .partners__cities {
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-  }
-  .partners__list {
-    gap: 8px 12px;
-    justify-content: center;
-  }
-  /* 単一アイテム時は1カラムにして中央寄せ */
-  .partners__item {
-    justify-content: center;
-    text-align: center;
-  }
-  .partners__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-  }
-  .partners__block:last-child {
-    margin-bottom: 0;
-  }
-}
-:root {
-  --testimonials-color-text: #333333;
-  --testimonials-color-bg: #ffffff;
-  --testimonials-content-width: 1000px;
-  --testimonials-font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-}
-
-.testimonials {
-  width: 100%;
-  background-color: var(--testimonials-color-bg, var(--color-white));
-  padding: 80px 24px;
-  font-family: var(--testimonials-font-family);
-  color: var(--testimonials-color-text, var(--color-text));
-  line-height: 1.8;
-}
-
-.testimonials img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.testimonials__inner {
-  max-width: var(--testimonials-content-width);
-  margin: 0 auto;
-}
-
-.testimonials__title-area {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.testimonials__title-area .section-title {
-  margin: 0;
-}
-
-.testimonials__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-
-.testimonials__item {
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  will-change: opacity, transform;
-}
-
-.testimonials__item.is-inview {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: var(--reveal-delay, 0ms);
-}
-
-.testimonials__img-wrapper {
-  margin-bottom: 24px;
-}
-
-.testimonials__img {
-  width: 100%;
-  border-radius: 8px;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-}
-
-.testimonials__text {
-  font-size: 14px;
-  text-align: left;
-  word-break: break-all;
-}
-
-@media screen and (max-width: 768px) {
-  .testimonials {
-    padding: 0 24px 0;
-    margin-bottom: 72px;
-  }
-  .testimonials__list {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-  .testimonials__item {
-    max-width: 400px;
-    margin: 0 auto;
   }
 }
 /* Global CSS custom properties (shared across sections) */
@@ -1691,7 +1340,8 @@ p {
   display: grid;
   grid-template-columns: 180px 1fr;
   row-gap: 24px;
-  column-gap: 40px;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
   align-items: start;
   margin: 0;
 }
@@ -1887,7 +1537,8 @@ p {
 .flow__cluster-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 18px;
+  -moz-column-gap: 18px;
+       column-gap: 18px;
   align-items: center;
 }
 
@@ -2309,6 +1960,4 @@ p {
     align-items: center;
     gap: 30px;
   }
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
