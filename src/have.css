@@ -24,6 +24,26 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Responsive: hide manual <br> line breaks on small screens */
+.br-hide-mobile br {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .br-hide-mobile br {
+    display: none;
+  }
+}
+/* PC-only line break */
+.pc-only {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .pc-only {
+    display: none;
+  }
+}
 .section-title {
   position: relative;
   display: inline-block;
@@ -349,12 +369,18 @@ p {
   bottom: var(--desc-gap);
   left: calc(-1.2 * var(--desc-offset));
   color: #4387b5;
+  white-space: normal;
+  overflow-wrap: break-word;
+  max-width: min(var(--desc-width), 42vw);
 }
 
 .have .br-desc {
   bottom: var(--desc-gap);
   right: calc(-1.3 * var(--desc-offset));
   color: #2d8a6b;
+  white-space: normal;
+  overflow-wrap: break-word;
+  max-width: min(var(--desc-width), 42vw);
 }
 
 @media (max-width: 640px) {

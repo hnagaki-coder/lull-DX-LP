@@ -61,7 +61,7 @@
     </h1>
       <picture class="hero-image__media">
         <source srcset="./img/fastview-sp.svg" media="(max-width: 768px)">
-        <img src="./img/fastview1.png" alt="「自由」より、「強さ」を。」">
+        <img src="./img/fastview.png" alt="「自由」より、「強さ」を。」">
       </picture>
   </section>
 
@@ -254,9 +254,9 @@
 
                   <div class="node-group tr">
                     <div class="description tr-desc">
-                      全国の有人離島と都市部・企業を繋ぐプラッ<br>
-                      トフォームとして、特産品の流通や情報発信<br>
-                      を通じて島の地域活性化をプロデュースする<br>
+                      全国の有人離島と都市部・企業を繋ぐプラッ<br class="br-hide-mobile">
+                      トフォームとして、特産品の流通や情報発信<br class="br-hide-mobile">
+                      を通じて島の地域活性化をプロデュースする<br class="br-hide-mobile">
                       組織
                     </div>
                     <div class="outer-circle"></div>
@@ -265,8 +265,8 @@
 
                   <div class="node-group bl">
                     <div class="description bl-desc">
-                      IT未経験者の育成とキャリア支援を軸に、IT<br>
-                      人材不足の解消と地域格差の正に取り組む<br>
+                      IT未経験者の育成とキャリア支援を軸に、IT<br class="pc-only">
+                      人材不足の解消と地域格差の正に取り組む<br class="pc-only">
                       EdTech・HRテック企業
                     </div>
                     <div class="outer-circle"></div>
@@ -289,73 +289,112 @@
 
     </section>
 
-    <section class="flow">
-      <div class="section-inner flow__inner">
-        <div class="flow__title-area">
+    <section class="career-section">
+      <div class="section-inner container">
+        <header class="header-group">
           <h2 class="section-title">参画の流れ</h2>
-        </div>
-        <p class="flow__subtitle">自身のキャリアを「3年後」「5年後」と広い視点で考えられる環境を提供</p>
+          <p class="flow__subtitle">
+            自身のキャリアを「3年後」「5年後」と広い視点で考えられる環境を提供
+          </p>
+        </header>
 
-        <div class="flow__panel">
-          <span class="flow__line" aria-hidden="true"></span>
-          <div class="flow__grid">
-            <div class="flow__node">
-              <span class="flow__label">半年</span>
-              <div class="flow__hex">
+        <div class="flow-wrapper">
+          <div class="phase-box phase-start">
+            <span class="label">1年目〜3年目</span>
+            <div class="flow__hex white-card">
+              <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
+                <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
+              </svg>
+              <div class="flow__hex-content">
+                <ul class="activity-list">
+                  <li class="list-item">
+                  <span class="list-icon">
+                    <img src="./img/icon1.png" alt="">
+                  </span>
+                    <span class="list-text">地域活動と現場業務</span>
+                  </li>
+                  <li class="list-item">
+                  <span class="list-icon">
+                    <img src="./img/icon2.png" alt="">
+                  </span>
+                    <span class="list-text">基礎学習（ITカリキュラム）</span>
+                  </li>
+                  <li class="list-item">
+                  <span class="list-icon">
+                    <img src="./img/icon3.png" alt="">
+                  </span>
+                    <span class="list-text">ITでの地域課題解決の<br>
+                      実践を通じた実績作り</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="arrow-divider" aria-hidden="true">
+            <svg class="arrow-icon" viewBox="0 0 120 28">
+              <line x1="2" y1="14" x2="90" y2="14"></line>
+              <path d="M90 4 L118 14 L90 24 Z"></path>
+            </svg>
+          </div>
+
+          <div class="phase-box phase-end">
+            <span class="label">3年後</span>
+            <div class="hexagon-container">
+              <div class="flow__hex size-l">
                 <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
                   <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
                 </svg>
                 <div class="flow__hex-content">
-                  <p class="flow__hex-title">研修期間</p>
-                  <p class="flow__hex-text">仮の説明文<br>仮の説明文</p>
+                  <p class="flow__hex-title">フリーランス</p>
                 </div>
               </div>
-            </div>
-
-            <div class="flow__node">
-              <span class="flow__label">3年</span>
-              <div class="flow__hex">
+              <div class="flow__hex size-l">
                 <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
                   <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
                 </svg>
                 <div class="flow__hex-content">
-                  <p class="flow__hex-title">全国の<br>
-                    提携自治体へ配属</p>
-                  <p class="flow__hex-text">仮の説明文</p>
+                  <p class="flow__hex-title">地域定住<br>(企業)</p>
                 </div>
               </div>
-            </div>
-
-            <div class="flow__node flow__node--right">
-              <span class="flow__label">3年経過</span>
-              <div class="flow__cluster">
-                <div class="flow__cluster-row">
-                  <div class="flow__hex flow__hex--small">
-                    <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
-                      <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
-                    </svg>
-                    <div class="flow__hex-content">
-                      <p class="flow__hex-title">仮の説明文</p>
-                    </div>
-                  </div>
-                  <div class="flow__hex flow__hex--small">
-                    <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
-                      <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
-                    </svg>
-                    <div class="flow__hex-content">
-                      <p class="flow__hex-title">仮の説明文</p>
-                    </div>
-                  </div>
+              <div class="flow__hex size-l">
+                <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
+                  <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
+                </svg>
+                <div class="flow__hex-content">
+                  <p class="flow__hex-title">フルリモート<br>(都市部企業)</p>
                 </div>
-                <div class="flow__cluster-row flow__cluster-row--center">
-                  <div class="flow__hex flow__hex--small">
-                    <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
-                      <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
-                    </svg>
-                    <div class="flow__hex-content">
-                      <p class="flow__hex-title">仮の説明文</p>
-                    </div>
-                  </div>
+              </div>
+              <div class="flow__hex size-s">
+                <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
+                  <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
+                </svg>
+                <div class="flow__hex-content">
+                  <p class="flow__hex-title">マルチワーカー</p>
+                </div>
+              </div>
+              <div class="flow__hex size-s">
+                <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
+                  <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
+                </svg>
+                <div class="flow__hex-content">
+                  <p class="flow__hex-title">地域PM</p>
+                </div>
+              </div>
+              <div class="flow__hex size-xs">
+                <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
+                  <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
+                </svg>
+                <div class="flow__hex-content">
+                  <p class="flow__hex-title"><span class="is-bold">企業</span></p>
+                </div>
+              </div>
+              <div class="flow__hex size-xs">
+                <svg class="flow__hex-shape" viewBox="0 0 120 104" aria-hidden="true">
+                  <path d="M60 6 L108 32 L108 72 L60 98 L12 72 L12 32 Z"></path>
+                </svg>
+                <div class="flow__hex-content">
+                  <p class="flow__hex-title"><span class="is-bold">二地域居住</span></p>
                 </div>
               </div>
             </div>
@@ -381,20 +420,6 @@
               6ヶ月〜12ヶ月間の研修で、ビジネスマナーからITの基礎、WEB制作プログラミングのことを学んでいただきます。<br>
               <br>
               ゼロからでもしっかりできるようフォローさせていただきますので、未経験からでも無理なく安心して業務に慣れていくことができる環境です。
-            </dd>
-
-            <dt class="requirements__term">勤務地</dt>
-            <dd class="requirements__desc">本社、東京都、神奈川県、埼玉県、千葉県、大阪府、大阪府近郊などのプロジェクト先</dd>
-
-            <dt class="requirements__term">給与</dt>
-            <dd class="requirements__desc">
-              月給25万円〜 ＋ 業績賞与 ＋ 各種手当<br>
-              <small>※固定残業代（12時間分/2万1675円分）を含みます。超過分は追加支給します。</small><br>
-              <small>※経験・年齢を考慮し、初任給額を決定します。</small>
-              <ul>
-                <li>研修期間：月給20万円〜 ＋ 交通費</li>
-                <li>入社後7ヶ月目〜研修中：月給22万円〜 ＋ 交通費</li>
-              </ul>
             </dd>
 
             <dt class="requirements__term">待遇・福利厚生</dt>

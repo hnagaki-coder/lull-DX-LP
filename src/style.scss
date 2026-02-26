@@ -37,6 +37,28 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Responsive: hide manual <br> line breaks on small screens */
+.br-hide-mobile br {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .br-hide-mobile br {
+    display: none;
+  }
+}
+
+/* PC-only line break */
+.pc-only {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .pc-only {
+    display: none;
+  }
+}
+
 .section-title {
   position: relative;
   display: inline-block;

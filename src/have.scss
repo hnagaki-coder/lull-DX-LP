@@ -207,12 +207,20 @@ $brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand
   bottom: var(--desc-gap);
   left: calc(-1.2 * var(--desc-offset));
   color: #4387b5;
+  white-space: normal;
+  overflow-wrap: break-word;
+  width: 100%;
+  max-width: 100%;
 }
 
 .have .br-desc {
   bottom: var(--desc-gap);
   right: calc(-1.3 * var(--desc-offset));
   color: #2d8a6b;
+  white-space: normal;
+  overflow-wrap: break-word;
+  width: 100%;
+  max-width: 100%;
 }
 
 @media (max-width: 640px) {
