@@ -42,6 +42,17 @@ $brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand
 
 .requirements__title-area .section-title {
   margin: 0;
+  padding: 0;
+  border: 0;
+  background: $brand-gradient-x;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.requirements__title-area .section-title::before,
+.requirements__title-area .section-title::after {
+  content: none;
 }
 
 .requirements__list {
@@ -115,4 +126,3 @@ $brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand
     margin-bottom: 10px;
   }
 }
-
