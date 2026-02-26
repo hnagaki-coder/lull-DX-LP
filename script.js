@@ -387,6 +387,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const careerCard = document.querySelector('.white-card.flow__hex');
+  const careerHex = document.querySelector('.hexagon-container');
+
+  if (careerCard) {
+    const revealCareerCard = () => {
+      careerCard.classList.add('is-inview');
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries, observerInstance) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              revealCareerCard();
+              observerInstance.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+        }
+      );
+
+      observer.observe(careerCard);
+    } else {
+      revealCareerCard();
+    }
+  }
+
+  if (careerHex) {
+    const revealCareerHex = () => {
+      careerHex.style.transitionDelay = '140ms';
+      careerHex.classList.add('is-inview');
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries, observerInstance) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              revealCareerHex();
+              observerInstance.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+        }
+      );
+
+      observer.observe(careerHex);
+    } else {
+      window.setTimeout(revealCareerHex, 140);
+    }
+  }
+
   const requirementsBox = document.querySelector('.requirements__box');
 
   if (requirementsBox) {

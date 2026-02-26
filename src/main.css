@@ -131,7 +131,6 @@ img {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -187,8 +186,7 @@ img {
 .hexagon img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
@@ -197,8 +195,7 @@ img {
   top: -3px;
   left: 48%;
   z-index: 5;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-2-image {
@@ -206,8 +203,7 @@ img {
   top: -3px;
   right: -40px;
   z-index: 4;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-3-image {
@@ -215,8 +211,7 @@ img {
   top: 37%;
   left: 67%;
   z-index: 3;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-4-image {
@@ -224,8 +219,7 @@ img {
   bottom: -200px;
   right: -40px;
   z-index: 4;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-5-image {
@@ -233,8 +227,7 @@ img {
   bottom: -200px;
   left: 48%;
   z-index: 4;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-6-image {
@@ -242,8 +235,7 @@ img {
   bottom: -200px;
   left: -160px;
   z-index: 2;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-7-image {
@@ -251,8 +243,7 @@ img {
   top: -188px;
   left: 67%;
   z-index: 3;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-8-image {
@@ -260,8 +251,7 @@ img {
   top: -188px;
   left: 27%;
   z-index: 3;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media screen and (min-width: 1280px) {
@@ -741,7 +731,6 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  width: -moz-fit-content;
   width: fit-content;
   max-width: none;
 }
@@ -864,8 +853,7 @@ body {
 .solution__icon {
   width: 220px;
   height: 220px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .solution__content {
@@ -1099,8 +1087,7 @@ body {
   display: block;
   width: 100%;
   aspect-ratio: 248/140;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .area-card__body {
@@ -1573,8 +1560,7 @@ body {
   display: grid;
   grid-template-columns: 180px 1fr;
   row-gap: 24px;
-  -moz-column-gap: 40px;
-       column-gap: 40px;
+  column-gap: 40px;
   align-items: start;
   margin: 0;
 }
@@ -1700,6 +1686,15 @@ body {
   height: 410px;
   max-width: 100%;
   min-width: 300px;
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.white-card.flow__hex.is-inview {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .white-card .flow__hex-content {
@@ -1795,6 +1790,15 @@ body {
   --origin-x: 50%;
   --origin-y: 90px;
   overflow: visible;
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.hexagon-container.is-inview {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hexagon-container .flow__hex:nth-child(1) {
@@ -2418,4 +2422,6 @@ body {
     align-items: center;
     gap: 30px;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

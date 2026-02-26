@@ -66,6 +66,15 @@ $brand-gradient-x: linear-gradient(to right, #114B81, #3FB0BF);
   height: 410px;
   max-width: 100%;
   min-width: 300px;
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.white-card.flow__hex.is-inview {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .white-card .flow__hex-content {
@@ -161,6 +170,15 @@ $brand-gradient-x: linear-gradient(to right, #114B81, #3FB0BF);
   --origin-x: 50%;
   --origin-y: 90px;
   overflow: visible;
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.hexagon-container.is-inview {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hexagon-container .flow__hex:nth-child(1) {
