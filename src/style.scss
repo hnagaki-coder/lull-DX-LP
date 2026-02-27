@@ -1,0 +1,192 @@
+// ==============================
+// 共通ブランドカラー
+// ==============================
+$brand-color-start: #245E96;
+$brand-color-end: #329BBD;
+$brand-gradient-y: linear-gradient(180deg,
+    $brand-color-start,
+    $brand-color-end);
+$brand-gradient-x: linear-gradient(90deg,
+    $brand-color-start,
+    $brand-color-end);
+
+/* Global CSS custom properties (shared across sections) */
+:root {
+  /* Global color tokens */
+  --color-white: #ffffff;
+  --color-black: #333333;
+  --color-text: #333333;
+
+  /* Brand palette (CSS variables counterpart) */
+  --brand-primary: #236fa6;
+  --brand-primary-accent: #3496bf;
+
+  --header-height: 80px;
+  --header-content-width: 1120px;
+  --header-bg: #ffffff;
+  --header-text: #333333;
+  --header-btn-start: #236fa6;
+  --header-btn-end: #3496bf;
+  --header-radius: 4px;
+  --header-font: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+/* Prevent horizontal overflow on small screens */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Responsive: hide manual <br> line breaks on small screens */
+.br-hide-mobile br {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .br-hide-mobile br {
+    display: none;
+  }
+}
+
+/* PC-only line break */
+.pc-only {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .pc-only {
+    display: none;
+  }
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding: 10px 48px;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1;
+  font-size: clamp(14px, 2.8125vw, 36px);
+
+  /* グラデーション枠（内側は白、外側に横グラデーション） */
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    $brand-gradient-x border-box;
+  background-clip: padding-box, border-box;
+  color: $brand-color-start;
+
+  /* 左右の丸（疑似要素で再現） */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: $brand-gradient-x;
+    border-radius: 50%;
+  }
+  &::before { left: 12px; }
+  &::after  { right: 12px; }
+
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==============================
+   Typography (1280px baseline)
+   Calculate vw so that at 1280px the sizes equal the requested px values.
+   h2: 36px -> 2.8125vw
+   h3: 24px -> 1.875vw
+   h4: 18px -> 1.40625vw
+   p : 16px -> 1.25vw
+   Use clamp to provide reasonable minimums on very small viewports.
+   ============================== */
+h2 {
+  font-size: clamp(20px, 2.8125vw, 36px);
+  margin: 0 0 0.5em 0;
+}
+
+h3 {
+  font-size: clamp(16px, 1.875vw, 24px);
+  margin: 0 0 0.5em 0;
+}
+
+h4 {
+  font-size: clamp(14px, 1.40625vw, 18px);
+  margin: 0 0 0.5em 0;
+}
+
+p {
+  font-size: clamp(12px, 1.25vw, 16px);
+  line-height: 1.6;
+  margin: 0 0 1em 0;
+}
+
+.section-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+/* ==============================
+   CTA ボタン
+   画像に合わせた白背景 + グラデーション枠、青いテキスト
+   ============================== */
+.cta_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 32px;
+  border-radius: var(--header-radius);
+  background: linear-gradient(90deg, var(--header-btn-start), var(--header-btn-end));
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.cta_button:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.cta_button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    /* Larger for readability on small screens */
+    font-size: clamp(18px, 5vw, 28px);
+    padding: 14px 32px;
+    /* 明示的に左右のボーダーを無効化（見えない保険） */
+    border-left-style: none;
+    border-right-style: none;
+    border-left-width: 0;
+    border-right-width: 0;
+    /* モバイルは上下ラインのみを背景で描画し、左右の縦ラインを完全排除 */
+    border-top: 0;
+    border-bottom: 0;
+    background:
+      linear-gradient(90deg, $brand-color-start, $brand-color-end) top / 100% 3px no-repeat,
+      linear-gradient(90deg, $brand-color-start, $brand-color-end) bottom / 100% 3px no-repeat,
+      linear-gradient(#ffffff, #ffffff);
+    background-clip: border-box;
+  }
+
+  /* スマホ時は左右の装飾（疑似要素）を非表示 */
+  // .section-title::before,
+  // .section-title::after {
+  //   display: none;
+  //   content: none;
+  // }
+
+  .cta_button {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,43 @@
+@use "style" as style;
+
+$brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand-color-end);
+
+.region-dx {
+  margin-bottom: 80px;
+}
+
+.region-dx__header {
+  background: $brand-gradient-x;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 32px 48px;
+}
+
+.region-dx__header > * {
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.region-dx__header.is-inview > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta_button--region {
+  background: #ffffff;
+  color: style.$brand-color-start;
+  border: none;
+  box-shadow: none;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.cta_button--region:hover {
+  opacity: 1;
+  filter: brightness(0.98);
+}

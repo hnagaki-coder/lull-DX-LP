@@ -1,0 +1,13 @@
+{
+  "name": "lull-dx-lp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Compile SCSS into a single CSS bundle.",
+  "scripts": {
+    "build:css": "sass src/main.scss src/main.css",
+    "watch:css": "sass --watch src/main.scss src/main.css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}
