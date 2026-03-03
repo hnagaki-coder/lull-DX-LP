@@ -142,6 +142,10 @@
 }
 
 .selection__action {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
   text-align: center;
   margin-bottom: 16px;
 }
