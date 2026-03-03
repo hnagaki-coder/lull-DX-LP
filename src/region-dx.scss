@@ -28,13 +28,20 @@ $brand-gradient-x: linear-gradient(90deg, style.$brand-color-start, style.$brand
   transform: translateY(0);
 }
 
+.region-dx__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+
 .cta_button--region {
   background: #ffffff;
   color: style.$brand-color-start;
   border: none;
   box-shadow: none;
   border-radius: 8px;
-  margin-top: 24px;
 }
 
 .cta_button--region:hover {

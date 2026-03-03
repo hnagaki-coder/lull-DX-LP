@@ -47,6 +47,13 @@
   width: auto;
 }
 
+.header__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
 
 /* Push page content below fixed header so first section is not hidden */
 body {
