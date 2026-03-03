@@ -69,6 +69,26 @@ body {
   .header__logo-img {
     height: 22px;
   }
+  .header__action {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 16px;
+    gap: 12px;
+    background-color: var(--header-bg);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
+    z-index: 1001;
+  }
+  .header__action .cta_button {
+    width: 50%;
+    max-width: none;
+    padding: 12px 12px;
+    font-size: 14px;
+  }
+  body {
+    padding-bottom: 88px;
+  }
 }
 /* =========================================
    Base Settings & Variables
@@ -138,7 +158,6 @@ img {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -194,8 +213,7 @@ img {
 .hexagon img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
@@ -204,8 +222,7 @@ img {
   top: -3px;
   left: 48%;
   z-index: 5;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-2-image {
@@ -213,8 +230,7 @@ img {
   top: -3px;
   right: -40px;
   z-index: 4;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-3-image {
@@ -222,8 +238,7 @@ img {
   top: 37%;
   left: 67%;
   z-index: 3;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-4-image {
@@ -231,8 +246,7 @@ img {
   bottom: -200px;
   right: -40px;
   z-index: 4;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-5-image {
@@ -240,8 +254,7 @@ img {
   bottom: -200px;
   left: 48%;
   z-index: 4;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-6-image {
@@ -249,8 +262,7 @@ img {
   bottom: -200px;
   left: -160px;
   z-index: 2;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-7-image {
@@ -258,8 +270,7 @@ img {
   top: -188px;
   left: 67%;
   z-index: 3;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hex-8-image {
@@ -267,8 +278,7 @@ img {
   top: -188px;
   left: 27%;
   z-index: 3;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media screen and (min-width: 1280px) {
@@ -755,7 +765,6 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  width: -moz-fit-content;
   width: fit-content;
   max-width: none;
 }
@@ -878,8 +887,7 @@ body {
 .solution__icon {
   width: 220px;
   height: 220px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .solution__content {
@@ -1029,10 +1037,15 @@ body {
   .vision__title {
     font-size: 18px;
   }
-  .vision .cta_button {
-    width: 100%;
-    max-width: 300px;
-    padding: 12px 20px;
+  .vision__action {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  .vision__action .cta_button {
+    width: 50%;
+    max-width: none;
+    padding: 12px 12px;
+    font-size: 14px;
   }
 }
 :root {
@@ -1117,8 +1130,7 @@ body {
   display: block;
   width: 100%;
   aspect-ratio: 248/140;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .area-card__body {
@@ -1591,8 +1603,7 @@ body {
   display: grid;
   grid-template-columns: 180px 1fr;
   row-gap: 24px;
-  -moz-column-gap: 40px;
-       column-gap: 40px;
+  column-gap: 40px;
   align-items: start;
   margin: 0;
 }
@@ -2267,11 +2278,15 @@ body {
     align-items: flex-start;
     gap: 6px;
   }
+  .selection__action {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
   .selection__action .cta_button {
-    width: 100%;
-    max-width: 300px;
-    padding: 14px 20px;
-    font-size: 16px;
+    width: 50%;
+    max-width: none;
+    padding: 12px 12px;
+    font-size: 14px;
   }
 }
 .faq {
@@ -2458,4 +2473,6 @@ body {
     align-items: center;
     gap: 30px;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

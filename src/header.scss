@@ -73,4 +73,26 @@ body {
     height: 22px;
   }
 
+  .header__action {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 16px;
+    gap: 12px;
+    background-color: var(--header-bg);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
+    z-index: 1001;
+  }
+
+  .header__action .cta_button {
+    width: 50%;
+    max-width: none;
+    padding: 12px 12px;
+    font-size: 14px;
+  }
+
+  body {
+    padding-bottom: 88px;
+  }
 }
