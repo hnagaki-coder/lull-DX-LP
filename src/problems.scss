@@ -85,6 +85,10 @@ body {
   white-space: nowrap;
 }
 
+.problems__title-break {
+  display: inline;
+}
+
 .problems__list {
   list-style: none;
   display: grid;
@@ -136,11 +140,15 @@ body {
     width: 100%;
   }
 
+  .problems__title-break {
+    display: block;
+  }
+
   .problems__title-wrapper {
     width: 90%;
   }
 
   .problems__box {
-    padding: 50px 20px 30px;
+    padding: 60px 20px 30px;
   }
 }
